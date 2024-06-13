@@ -1,113 +1,259 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+'use client';
+
+import React from 'react';
+import { useState } from 'react';
+import * as htmlToImage from 'html-to-image';
+import { useRef } from 'react';
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+  const [formData, setFormData] = useState({
+    oshikatsu: '',
+    mirai: '',
+  });
+
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const [submittedImage, setSubmittedImage] = useState(null);
+
+  const [submittedText, setSubmittedText] = useState({
+    oshikatsu: '',
+    mirai: '',
+  });
+
+  const oshikatsuChangeHandler = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+    e.target.setCustomValidity("");
+  };
+
+  const miraiChangeHandler = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+    e.target.setCustomValidity("");
+  };
+
+  const imageHandler = (e) => {
+    console.log(e.target.files[0]); // Log the selected file
+    setSelectedImage(e.target.files[0]);
+    e.target.setCustomValidity("");
+  };
+
+  function autoScroll() {
+    window.location.replace("/#result");
+  };
+
+  const inputRef = useRef(null);
+
+  function screenshotDownload() {
+    {/* htmlToImage.toPng(inputRef.current)
+      .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        inputRef.current.append(img);
+      })
+      .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+      }); */}
+
+    htmlToImage.toJpeg(inputRef.current, { quality: 0.95 })
+      .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'my-oshikatsu.jpeg';
+        link.href = dataUrl;
+        link.click();
+      });
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSubmittedImage(e.target.image.files[0]);
+    console.log(e);
+    console.log(e.target.oshikatsu.name);
+    console.log(e.target.mirai.name)
+    setSubmittedText({
+      ...submittedText,
+      [e.target.oshikatsu.name]: e.target.oshikatsu.value,
+      [e.target.mirai.name]: e.target.mirai.value
+    });
+    setTimeout(autoScroll, 500);
+  };
+
+  return (
+    <main className="flex min-h-screen flex-col items-center">
+      <div className="header">
+        <img
+          alt="not found"
+          src={"https://i.ibb.co/C57pJ8F/oshikatsu-banner.jpg"}
         />
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <form onSubmit={handleSubmit} className="p-10">
+        <div className="space-y-5">
+          <h2 className="text-base font-semibold leading-7 text-gray-900">私の「推し勝」ジェネレーター</h2>
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="col-span-full">
+              <label htmlFor="oshikatsu" className="block text-sm font-medium leading-6 text-gray-900">
+                あなたの「推し勝」教えてください！
+              </label>
+              <div className="mt-2">
+                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    type="text"
+                    name="oshikatsu"
+                    id="oshikatsu"
+                    value={formData.oshikatsu}
+                    maxLength={12}
+                    className="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    placeholder="きょうりゅう"
+                    required={true}
+                    onInvalid={(e) => { e.target.setCustomValidity("入力してください") }}
+                    onChange={oshikatsuChangeHandler}
+                  />
+                </div>
+              </div>
+            </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <div className="col-span-full">
+              <label htmlFor="mirai" className="block text-sm font-medium leading-6 text-gray-900">
+                「推し勝」でどんな未来を創る？
+              </label>
+              <div className="mt-2">
+                <textarea
+                  name="mirai"
+                  id="mirai"
+                  value={formData.mirai}
+                  maxLength={50}
+                  className="block w-full rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="勝山は、いろんな魅力が恐竜級！私たちみんなでお待ちしています！"
+                  required={true}
+                  onInvalid={(e) => { e.target.setCustomValidity("入力してください") }}
+                  onChange={miraiChangeHandler}
+                />
+              </div>
+            </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+            <div className="col-span-full">
+              <label htmlFor="image" className="block text-sm font-medium leading-6 text-gray-900">
+                写真をアップしてください。
+              </label>
+              <div className="mt-2">
+                {selectedImage && (
+                  <div>
+                    <img
+                      alt="not found"
+                      width={"250px"}
+                      src={URL.createObjectURL(selectedImage)}
+                    />
+                  </div>
+                )}
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+                <input
+                  style={{ maxWidth: 250 }}
+                  type="file"
+                  id="image"
+                  name="image"
+                  onChange={imageHandler}
+                  required={true}
+                  onInvalid={(e) => { e.target.setCustomValidity("写真をアップしてください") }}
+                />
+              </div>
+            </div>
+
+            <div className="col-span-full">
+              <label htmlFor="check" className="block text-sm font-medium leading-6 text-gray-900">
+
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 flex items-center gap-x-6">
+          <button
+            type="submit"
+            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            創る
+          </button>
+        </div>
+      </form>
+
+      <br />
+      <br />
+
+        <div className="mt-2">
+          {submittedImage && (
+            <div id="result">
+              <div id="template" className="template flex flex-col items-center max-w-5xl p-5">
+                <h2 id="download-heading" className="download-heading font-bold align-center m-10">写真を押すと、ダウンロードが始まります。</h2>
+                <div id="screenshot-div" ref={inputRef} className="screenshot-div flex flex-col items-center">
+                  <img
+                    className="template-base"
+                    id="template-base"
+                    alt="not found"
+                    src="https://i.ibb.co/vVPJwLv/oshikatsu-template.jpg"
+                  />
+
+                  <img
+                    className="picture"
+                    id="picture"
+                    alt="not found"
+                    src={URL.createObjectURL(submittedImage)}
+                  />
+
+                  <p className="text1" id="text1">{submittedText.oshikatsu}</p>
+                  <p className="text2" id="text1">{submittedText.mirai}</p>
+                  <div id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></div>
+                </div>
+                <button
+                  id="download-button"
+                  className="download-button rounded-md bg-indigo-600 mt-10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={screenshotDownload}
+                >
+                  保存する
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+
+
+
+      {/* <div className="mt-2">
+        {submittedImage && (
+          <div id="result">
+            <div
+              className="template flex flex-col items-center max-w-5xl p-5"
+              style={{ maxWidth: "1024px" }}
+            >
+              <img
+                id="base"
+                className="template-base"
+                alt="not found"
+                src="https://i.ibb.co/vVPJwLv/oshikatsu-template.jpg"
+              />
+
+              <img
+                id="upload"
+                className="picture"
+                alt="not found"
+                src={URL.createObjectURL(submittedImage)}
+              />
+
+              <p id="text1" className="text1">{submittedText.oshikatsu}</p>
+              <p id="text2" className="text2">
+                {submittedText.mirai}
+              </p>
+            </div>
+          </div>
+        )}
+      </div> */}
+    </main >
   );
 }
