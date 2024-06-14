@@ -89,20 +89,21 @@ export default function Home() {
       <div className="header">
         <img
           alt="not found"
-          src={"https://i.ibb.co/C57pJ8F/oshikatsu-banner.jpg"}
+          src={"https://i.ibb.co/dkDBPnG/oshikatsu-banner.jpg"}
         />
       </div>
 
-      <form onSubmit={handleSubmit} className="p-10">
-        <div className="space-y-5">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">私の「推し勝」ジェネレーター</h2>
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+      <form onSubmit={handleSubmit} className="p-5">
+        <div className="space-y-5 flex flex-col items-center">
+          <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">私の「推し勝★」ジェネレーター</h1>
+          <div className="form mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="col-span-full">
-              <label htmlFor="oshikatsu" className="block text-sm font-medium leading-6 text-gray-900">
-                あなたの「推し勝」教えてください！
+              <label htmlFor="oshikatsu" className="form-heading block font-semibold leading-6 text-gray-900">
+                あなたの「推し勝★」教えてください！
               </label>
+              <p className="form-note">※12字まで入力できます。</p>
               <div className="mt-2">
-                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <div className="flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                   <input
                     type="text"
                     name="oshikatsu"
@@ -120,16 +121,17 @@ export default function Home() {
             </div>
 
             <div className="col-span-full">
-              <label htmlFor="mirai" className="block text-sm font-medium leading-6 text-gray-900">
-                「推し勝」でどんな未来を創る？
+              <label htmlFor="mirai" className="form-heading block font-semibold  leading-6 text-gray-900">
+                「推し勝★」でどんな未来を創る？
               </label>
+              <p className="form-note">※50字まで入力できます。</p>
               <div className="mt-2">
                 <textarea
                   name="mirai"
                   id="mirai"
                   value={formData.mirai}
                   maxLength={50}
-                  className="block w-full rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="勝山は、いろんな魅力が恐竜級！私たちみんなでお待ちしています！"
                   required={true}
                   onInvalid={(e) => { e.target.setCustomValidity("入力してください") }}
@@ -139,10 +141,11 @@ export default function Home() {
             </div>
 
             <div className="col-span-full">
-              <label htmlFor="image" className="block text-sm font-medium leading-6 text-gray-900">
+              <label htmlFor="image" className="form-heading block font-semibold  leading-6 text-gray-900">
                 写真をアップしてください。
               </label>
-              <div className="mt-2">
+              <p className="form-note">※テンプレートの写真スペースは横になっているので、縦の写真をアップする場合、全部が表示されない可能性があります。</p>
+              <div className="mt-4">
                 {selectedImage && (
                   <div>
                     <img
@@ -153,15 +156,20 @@ export default function Home() {
                   </div>
                 )}
 
-                <input
-                  style={{ maxWidth: 250 }}
-                  type="file"
-                  id="image"
-                  name="image"
-                  onChange={imageHandler}
-                  required={true}
-                  onInvalid={(e) => { e.target.setCustomValidity("写真をアップしてください") }}
-                />
+                <div className="flex flex-col items-center">
+                  <input
+                    style={{ maxWidth: 250 }}
+                    type="file"
+                    id="image"
+                    name="image"
+                    className=""
+                    onChange={imageHandler}
+                    required={true}
+                    onInvalid={(e) => { e.target.setCustomValidity("写真をアップしてください") }}
+                  />
+                </div>
+
+
               </div>
             </div>
 
@@ -173,12 +181,12 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-6 flex items-center gap-x-6">
+        <div className="mt-6 flex flex-col items-center gap-x-6">
           <button
             type="submit"
-            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md bg-indigo-600 px-14 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            創る
+            「推し勝★」を創る！
           </button>
         </div>
       </form>
@@ -190,13 +198,15 @@ export default function Home() {
           {submittedImage && (
             <div id="result">
               <div id="template" className="template flex flex-col items-center max-w-5xl p-5">
-                <h2 id="download-heading" className="download-heading font-bold align-center m-10">写真を押すと、ダウンロードが始まります。</h2>
+                <h2 id="download-heading" className="download-heading font-bold align-center m-10">
+                  写真をクリックすると、ダウンロードが始まります。
+                </h2>
                 <div id="screenshot-div" ref={inputRef} className="screenshot-div flex flex-col items-center">
                   <img
                     className="template-base"
                     id="template-base"
                     alt="not found"
-                    src="https://i.ibb.co/vVPJwLv/oshikatsu-template.jpg"
+                  src="https://i.ibb.co/Hrv5tnV/oshikatsu-template.jpg"
                   />
 
                   <img
