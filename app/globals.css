@@ -30,6 +30,22 @@ body {
   }
 }
 
+.form-title {
+  font-size: 18px;
+}
+
+.form {
+  max-width: 350px;
+}
+
+.form-heading {
+  font-size: 15px;
+}
+
+.form-note {
+  font-size: 11px;
+}
+
 .screenshot-div {
   display: grid;
 }
