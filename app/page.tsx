@@ -89,7 +89,7 @@ export default function Home() {
       <div className="header">
         <img
           alt="not found"
-          src={"https://i.ibb.co/C57pJ8F/oshikatsu-banner.jpg"}
+          src={"https://i.ibb.co/dkDBPnG/oshikatsu-banner.jpg"}
         />
       </div>
 
@@ -196,7 +196,7 @@ export default function Home() {
                     className="template-base"
                     id="template-base"
                     alt="not found"
-                    src="https://i.ibb.co/vVPJwLv/oshikatsu-template.jpg"
+                  src="https://i.ibb.co/Hrv5tnV/oshikatsu-template.jpg"
                   />
 
                   <img

@@ -43,6 +43,10 @@ body {
   text-align: center;
 }
 
+.picture {
+  object-fit: cover;
+}
+
 @media (max-width: 480px) {
   .picture {
     height: 30.6%;
