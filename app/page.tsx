@@ -169,7 +169,7 @@ export default function Home(this: any) {
               <label htmlFor="penname" className="form-heading block font-semibold leading-6 text-gray-900">
                 あなたのペンネームは何ですか？
               </label>
-              <p className="form-note">※10字まで入力できます。</p>
+              <p className="form-note">※15字まで入力できます。</p>
               <div className="mt-2">
                 <div className="flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                   <input
