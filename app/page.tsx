@@ -11,6 +11,8 @@ export default function Home() {
   const [formData, setFormData] = useState({
     oshikatsu: '',
     mirai: '',
+    penname: '',
+    age: '',
   });
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -20,6 +22,8 @@ export default function Home() {
   const [submittedText, setSubmittedText] = useState({
     oshikatsu: '',
     mirai: '',
+    penname: '',
+    age: '',
   });
 
   const oshikatsuChangeHandler = (e) => {
@@ -31,6 +35,21 @@ export default function Home() {
   };
 
   const miraiChangeHandler = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+    e.target.setCustomValidity("");
+  };
+
+  const pennameChangeHandler = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const ageChangeHandler = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -99,7 +118,7 @@ export default function Home() {
           <div className="form mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="col-span-full">
               <label htmlFor="oshikatsu" className="form-heading block font-semibold leading-6 text-gray-900">
-                あなたの「推し勝★」教えてください！
+                あなたの「推し勝★」を教えてください！
               </label>
               <p className="form-note">※7字まで入力できます。</p>
               <div className="mt-2">
@@ -137,6 +156,48 @@ export default function Home() {
                   onInvalid={(e) => { e.target.setCustomValidity("入力してください") }}
                   onChange={miraiChangeHandler}
                 />
+              </div>
+            </div>
+
+            <div className="col-span-full">
+              <label htmlFor="penname" className="form-heading block font-semibold leading-6 text-gray-900">
+                あなたのペンネームは何ですか？
+              </label>
+              <p className="form-note">※10字まで入力できます。</p>
+              <div className="mt-2">
+                <div className="flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    type="text"
+                    name="penname"
+                    id="penname"
+                    value={formData.penname}
+                    maxLength={10}
+                    className="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    placeholder="勝山たろう"
+                    onChange={pennameChangeHandler}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="col-span-full">
+              <label htmlFor="age" className="form-heading block font-semibold leading-6 text-gray-900">
+                おいくつですか？
+              </label>
+              <p className="form-note"></p>
+              <div className="mt-2">
+                <div className="flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+                  <input
+                    type="number"
+                    name="age"
+                    id="age"
+                    value={formData.age}
+                    max={120}
+                    className="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    onInvalid={(e) => { e.target.setCustomValidity("120まで入力できます") }}
+                    onChange={ageChangeHandler}
+                  />
+                </div>
               </div>
             </div>
 
