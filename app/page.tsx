@@ -98,7 +98,9 @@ export default function Home() {
     setSubmittedText({
       ...submittedText,
       [e.target.oshikatsu.name]: e.target.oshikatsu.value,
-      [e.target.mirai.name]: e.target.mirai.value
+      [e.target.mirai.name]: e.target.mirai.value,
+      [e.target.penname.name]: e.target.penname.value,
+      [e.target.age.name]: e.target.age.value,
     });
     setTimeout(autoScroll, 500);
   };
@@ -279,7 +281,9 @@ export default function Home() {
                   />
 
                   <p className="text1" id="text1">{submittedText.oshikatsu}</p>
-                  <p className="text2" id="text1">{submittedText.mirai}</p>
+                  <p className="text2" id="text2">{submittedText.mirai}</p>
+                  <p className="text3" id="text3">{submittedText.penname}</p>
+                  <p className="text4" id="text4">{submittedText.age}</p>
                   <div id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></div>
                 </div>
                 <button
