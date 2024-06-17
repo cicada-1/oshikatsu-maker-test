@@ -280,10 +280,10 @@ export default function Home() {
                     src={URL.createObjectURL(submittedImage)}
                   />
 
-                  <p className="text1" id="text1">{submittedText.oshikatsu}</p>
-                  <p className="text2" id="text2">{submittedText.mirai}</p>
-                  <p className="text3" id="text3">{submittedText.penname}</p>
-                  <p className="text4" id="text4">{submittedText.age}</p>
+                  <p className="poster-text-1" id="poster-text-1">{submittedText.oshikatsu}</p>
+                  <p className="poster-text-2" id="poster-text-2">{submittedText.mirai}</p>
+                  <p className="poster-text-3" id="poster-text-3">{submittedText.penname}</p>
+                  <p className="poster-text-4" id="poster-text-4">{submittedText.age}</p>
                   <div id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></div>
                 </div>
                 <button

@@ -57,12 +57,12 @@ body {
   display: grid;
 }
 
-.template-base, .download-div, .picture, .text1, .text2 {
+.template-base, .download-div, .picture, .poster-text-1, .poster-text-2 {
   grid-column: 1;
   grid-row: 1;
 }
 
-.picture, .text1, .text2, .download-div {
+.picture, .poster-text-1, .poster-text-2, .download-div {
   position: relative;
 }
 
@@ -74,7 +74,7 @@ body {
   left: 13.8%;
 }
 
-.text1 {
+.poster-text-1 {
   font-family: 'KatyouBB', sans-serif;
   text-align: center;
   font-weight: bold;
@@ -84,7 +84,7 @@ body {
   left: 27.1%;
 }
 
-.text2 {
+.poster-text-2 {
   font-weight: bold;
   word-wrap: break-word;
   max-width: 43%;
@@ -93,21 +93,21 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .text1 {
+  .poster-text-1 {
     font-size: 5.1vw;
   }
 
-  .text2 {
+  .poster-text-2 {
     font-size: 2.12vw;
   }
 }
 
 @media (min-width: 1025px) {
-  .text1 {
+  .poster-text-1 {
     font-size: 350%;
   }
 
-  .text2 {
+  .poster-text-2 {
     font-size: 130%;
   }
 }
