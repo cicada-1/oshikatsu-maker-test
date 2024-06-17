@@ -64,15 +64,11 @@ export default function Home() {
   };
 
   const existenceValidity = (e) => {
-    e.target.setCustomValidity("入力してください");
+    e.target.name == "image" ? e.target.setCustomValidity("写真をアップしてください") : e.target.setCustomValidity("入力してください");
   };
 
   const ageLimitValidity = (e) => {
     e.target.setCustomValidity("120まで入力できます");
-  };
-
-  const imageExistenceValidity = (e) => {
-    e.target.setCustomValidity("写真をアップしてください");
   };
 
   function autoScroll() {
@@ -241,7 +237,7 @@ export default function Home() {
                     className=""
                     onChange={imageHandler}
                     required={true}
-                    onInvalid={imageExistenceValidity}
+                    onInvalid={existenceValidity}
                   />
                 </div>
 
