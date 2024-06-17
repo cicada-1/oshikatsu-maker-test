@@ -6,7 +6,7 @@ import { useState } from 'react';
 import * as htmlToImage from 'html-to-image';
 import { useRef } from 'react';
 
-export default function Home() {
+export default function Home(this: any) {
 
   const [formData, setFormData] = useState({
     oshikatsu: '',
@@ -26,7 +26,7 @@ export default function Home() {
     age: '',
   });
 
-  const oshikatsuChangeHandler = (e) => {
+  const oshikatsuChangeHandler = (e: any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -34,7 +34,7 @@ export default function Home() {
     e.target.setCustomValidity("");
   };
 
-  const miraiChangeHandler = (e) => {
+  const miraiChangeHandler = (e: any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -42,14 +42,14 @@ export default function Home() {
     e.target.setCustomValidity("");
   };
 
-  const pennameChangeHandler = (e) => {
+  const pennameChangeHandler = (e: any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const ageChangeHandler = (e) => {
+  const ageChangeHandler = (e: any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -57,17 +57,16 @@ export default function Home() {
     e.target.setCustomValidity("");
   };
 
-  const imageHandler = (e) => {
-    console.log(e.target.files[0]); // Log the selected file
+  const imageHandler = (e: any) => {
     setSelectedImage(e.target.files[0]);
     e.target.setCustomValidity("");
   };
 
-  const existenceValidity = (e) => {
+  const existenceValidity = (e: any) => {
     e.target.name == "image" ? e.target.setCustomValidity("写真をアップしてください") : e.target.setCustomValidity("入力してください");
   };
 
-  const ageLimitValidity = (e) => {
+  const ageLimitValidity = (e: any) => {
     e.target.setCustomValidity("120まで入力できます");
   };
 
@@ -75,20 +74,20 @@ export default function Home() {
     window.location.replace("/#result");
   };
 
-  const inputRef = useRef(null);
+  const screenshotRef = useRef(this);
 
   function screenshotDownload() {
-    {/* htmlToImage.toPng(inputRef.current)
+    {/* htmlToImage.toPng(screenshotRef.current)
       .then(function (dataUrl) {
         var img = new Image();
         img.src = dataUrl;
-        inputRef.current.append(img);
+        screenshotRef.current.append(img);
       })
       .catch(function (error) {
         console.error('oops, something went wrong!', error);
       }); */}
 
-    htmlToImage.toJpeg(inputRef.current, { quality: 0.95 })
+    htmlToImage.toJpeg(screenshotRef.current, { quality: 0.95 })
       .then(function (dataUrl) {
         var link = document.createElement('a');
         link.download = 'my-oshikatsu.jpeg';
@@ -97,12 +96,9 @@ export default function Home() {
       });
   };
 
-  function handleSubmit(e) {
+  function handleSubmit(e: any) {
     e.preventDefault();
     setSubmittedImage(e.target.image.files[0]);
-    console.log(e);
-    console.log(e.target.oshikatsu.name);
-    console.log(e.target.mirai.name)
     setSubmittedText({
       ...submittedText,
       [e.target.oshikatsu.name]: e.target.oshikatsu.value,
@@ -111,6 +107,7 @@ export default function Home() {
       [e.target.age.name]: e.target.age.value,
     });
     setTimeout(autoScroll, 500);
+    console.log(inputRef.current);
   };
 
   return (
