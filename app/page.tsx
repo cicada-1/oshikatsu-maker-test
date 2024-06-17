@@ -107,7 +107,6 @@ export default function Home(this: any) {
       [e.target.age.name]: e.target.age.value,
     });
     setTimeout(autoScroll, 500);
-    console.log(inputRef.current);
   };
 
   return (
@@ -270,7 +269,7 @@ export default function Home(this: any) {
                 <h2 id="download-heading" className="download-heading font-bold align-center m-10">
                   写真をクリックすると、ダウンロードが始まります。
                 </h2>
-                <div id="screenshot-div" ref={inputRef} className="screenshot-div flex flex-col items-center">
+                <div id="screenshot-div" ref={screenshotRef} className="screenshot-div flex flex-col items-center">
                   <img
                     className="template-base"
                     id="template-base"
