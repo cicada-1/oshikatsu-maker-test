@@ -53,16 +53,20 @@ body {
   font-size: 11px;
 }
 
+.age-container, .age {
+  max-width: 75px;
+}
+
 .screenshot-div {
   display: grid;
 }
 
-.template-base, .download-div, .picture, .text1, .text2 {
+.template-base, .download-div, .picture, .poster-oshikatsu, .poster-mirai, .poster-name-age {
   grid-column: 1;
   grid-row: 1;
 }
 
-.picture, .text1, .text2, .download-div {
+.picture, .poster-oshikatsu, .poster-mirai, .poster-name-age, .download-div {
   position: relative;
 }
 
@@ -74,7 +78,7 @@ body {
   left: 13.8%;
 }
 
-.text1 {
+.poster-oshikatsu {
   font-family: 'KatyouBB', sans-serif;
   text-align: center;
   font-weight: bold;
@@ -84,30 +88,42 @@ body {
   left: 27.1%;
 }
 
-.text2 {
+.poster-mirai {
   font-weight: bold;
   word-wrap: break-word;
   max-width: 43%;
-  top: 25.3%;
+  top: 24.5%;
+  left: 12.5%;
+}
+
+.poster-name-age {
+  font-weight: bold;
+  white-space: nowrap;
+  max-width: 43%;
+  top: 27.8%;
   left: 12.5%;
 }
 
 @media (max-width: 1024px) {
-  .text1 {
+  .poster-oshikatsu {
     font-size: 5.1vw;
   }
 
-  .text2 {
+  .poster-mirai {
     font-size: 2.12vw;
+  }
+
+  .poster-name-age {
+    font-size: 1.7vw;
   }
 }
 
 @media (min-width: 1025px) {
-  .text1 {
+  .poster-oshikatsu {
     font-size: 350%;
   }
 
-  .text2 {
+  .poster-mirai {
     font-size: 130%;
   }
 }

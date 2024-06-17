@@ -63,6 +63,18 @@ export default function Home() {
     e.target.setCustomValidity("");
   };
 
+  const existenceValidity = (e) => {
+    e.target.setCustomValidity("入力してください");
+  };
+
+  const ageLimitValidity = (e) => {
+    e.target.setCustomValidity("120まで入力できます");
+  };
+
+  const imageExistenceValidity = (e) => {
+    e.target.setCustomValidity("写真をアップしてください");
+  };
+
   function autoScroll() {
     window.location.replace("/#result");
   };
@@ -98,7 +110,9 @@ export default function Home() {
     setSubmittedText({
       ...submittedText,
       [e.target.oshikatsu.name]: e.target.oshikatsu.value,
-      [e.target.mirai.name]: e.target.mirai.value
+      [e.target.mirai.name]: e.target.mirai.value,
+      [e.target.penname.name]: e.target.penname.value,
+      [e.target.age.name]: e.target.age.value,
     });
     setTimeout(autoScroll, 500);
   };
@@ -129,10 +143,10 @@ export default function Home() {
                     id="oshikatsu"
                     value={formData.oshikatsu}
                     maxLength={7}
-                    className="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    className="oshikatsu block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="きょうりゅう"
                     required={true}
-                    onInvalid={(e) => { e.target.setCustomValidity("入力してください") }}
+                    onInvalid={existenceValidity}
                     onChange={oshikatsuChangeHandler}
                   />
                 </div>
@@ -143,17 +157,17 @@ export default function Home() {
               <label htmlFor="mirai" className="form-heading block font-semibold  leading-6 text-gray-900">
                 「推し勝★」でどんな未来を創る？
               </label>
-              <p className="form-note">※50字まで入力できます。</p>
+              <p className="form-note">※36字まで入力できます。</p>
               <div className="mt-2">
                 <textarea
                   name="mirai"
                   id="mirai"
                   value={formData.mirai}
                   maxLength={36}
-                  className="block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="mirai block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="勝山は、いろんな魅力が恐竜級！私たちみんなでお待ちしています！"
                   required={true}
-                  onInvalid={(e) => { e.target.setCustomValidity("入力してください") }}
+                  onInvalid={existenceValidity}
                   onChange={miraiChangeHandler}
                 />
               </div>
@@ -171,8 +185,8 @@ export default function Home() {
                     name="penname"
                     id="penname"
                     value={formData.penname}
-                    maxLength={10}
-                    className="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    maxLength={15}
+                    className="pen-name block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="勝山たろう"
                     onChange={pennameChangeHandler}
                   />
@@ -186,15 +200,16 @@ export default function Home() {
               </label>
               <p className="form-note"></p>
               <div className="mt-2">
-                <div className="flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+                <div className="age-container flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                   <input
                     type="number"
                     name="age"
                     id="age"
                     value={formData.age}
                     max={120}
-                    className="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                    onInvalid={(e) => { e.target.setCustomValidity("120まで入力できます") }}
+                    placeholder="40"
+                    className=" age block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
+                    onInvalid={ageLimitValidity}
                     onChange={ageChangeHandler}
                   />
                 </div>
@@ -226,7 +241,7 @@ export default function Home() {
                     className=""
                     onChange={imageHandler}
                     required={true}
-                    onInvalid={(e) => { e.target.setCustomValidity("写真をアップしてください") }}
+                    onInvalid={imageExistenceValidity}
                   />
                 </div>
 
@@ -277,8 +292,9 @@ export default function Home() {
                     src={URL.createObjectURL(submittedImage)}
                   />
 
-                  <p className="text1" id="text1">{submittedText.oshikatsu}</p>
-                  <p className="text2" id="text1">{submittedText.mirai}</p>
+                  <p className="poster-oshikatsu" id="poster-oshikatsu">{submittedText.oshikatsu}</p>
+                  <p className="poster-mirai" id="poster-mirai">{submittedText.mirai}</p>
+                  <p className="poster-name-age" id="poster-name-age">{submittedText.penname}・{submittedText.age}歳</p>
                   <div id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></div>
                 </div>
                 <button
