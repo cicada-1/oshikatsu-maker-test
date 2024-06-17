@@ -30,12 +30,19 @@ body {
   }
 }
 
-.form-title {
-  font-size: 18px;
+@font-face {
+  font-family: 'KatyouBB';
+  src: url('./fonts/KatyouBB.ttf') format('truetype');
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
 }
 
 .form {
   max-width: 350px;
+}
+
+.form-title {
+  font-size: 18px;
 }
 
 .form-heading {
@@ -55,164 +62,53 @@ body {
   grid-row: 1;
 }
 
-.text1 {
-  text-align: center;
+.picture, .text1, .text2, .download-div {
+  position: relative;
 }
 
 .picture {
   object-fit: cover;
+  height: 30.6%;
+  width: 65.65%;
+  bottom: 23.3%;
+  left: 13.8%;
 }
 
-@media (max-width: 480px) {
-  .picture {
-    height: 30.6%;
-    width: 65.65%;
-    position: relative;
-    bottom: 23.3%;
-    left: 13.8%;
-  }
+.text1 {
+  font-family: 'KatyouBB', sans-serif;
+  text-align: center;
+  font-weight: bold;
+  white-space: nowrap;
+  max-width: 40.3%;
+  top: 6.2%;
+  left: 27.1%;
+}
 
+.text2 {
+  font-weight: bold;
+  word-wrap: break-word;
+  max-width: 43%;
+  top: 25.3%;
+  left: 12.5%;
+}
+
+@media (max-width: 1024px) {
   .text1 {
-    font-size: 3vw;
-    font-weight: bold;
-    max-width: 40.3%;
-    white-space: nowrap;
-    position: relative;
-    top: 6.2%;
-    left: 27.1%;
+    font-size: 5.1vw;
   }
 
   .text2 {
-    font-size: 2.1vw;
-    font-weight: bold;
-    word-wrap: break-word;
-    max-width: 43%;
-    position: relative;
-    top: 25.3%;
-    left: 12.5%;
+    font-size: 2.12vw;
   }
 }
 
-@media (min-width: 481px) and (max-width: 810px) {
-  .picture {
-    height: 30.6%;
-    width: 65.65%;
-    position: relative;
-    bottom: 23.3%;
-    left: 13.8%;
-  }
-
+@media (min-width: 1025px) {
   .text1 {
-    font-size: 3vw;
-    font-weight: bold;
-    max-width: 40.3%;
-    white-space: nowrap;
-    position: relative;
-    top: 6.2%;
-    left: 27.1%;
-  }
-
-  .text2 {
-    font-size: 2.1vw;
-    font-weight: bold;
-    word-wrap: break-word;
-    max-width: 43%;
-    position: relative;
-    top: 25.3%;
-    left: 12.5%;
-  }
-}
-
-@media (min-width: 811px) and (max-width: 1080px) {
-  .picture {
-    height: 30.6%;
-    width: 65.65%;
-    position: relative;
-    bottom: 23.3%;
-    left: 13.8%;
-  }
-
-  .text1 {
-    font-size: 3vw;
-    font-weight: bold;
-    max-width: 40.3%;
-    white-space: nowrap;
-    position: relative;
-    top: 6.2%;
-    left: 27.1%;
-  }
-
-  .text2 {
-    font-size: 2.1vw;
-    font-weight: bold;
-    word-wrap: break-word;
-    max-width: 43%;
-    position: relative;
-    top: 25.3%;
-    left: 12.5%;
-  }
-}
-
-@media (min-width: 1081px) and (max-width: 1440px) {
-  .picture {
-    height: 30.6%;
-    width: 65.65%;
-    position: relative;
-    bottom: 23.3%;
-    left: 13.8%;
-  }
-
-  .text1 {
-    font-size: 200%;
-    font-weight: bold;
-    max-width: 40.3%;
-    white-space: nowrap;
-    position: relative;
-    top: 6.2%;
-    left: 27.1%;
+    font-size: 350%;
   }
 
   .text2 {
     font-size: 130%;
-    font-weight: bold;
-    word-wrap: break-word;
-    max-width: 43%;
-    position: relative;
-    top: 25.3%;
-    left: 12.5%;
   }
 }
 
-@media (min-width: 1441px) {
-  .picture {
-    height: 30.6%;
-    width: 65.65%;
-    position: relative;
-    bottom: 23.3%;
-    left: 13.8%;
-  }
-
-  .text1 {
-    font-size: 200%;
-    font-weight: bold;
-    max-width: 40.3%;
-    white-space: nowrap;
-    position: relative;
-    top: 6.2%;
-    left: 27.1%;
-  }
-
-  .text2 {
-    font-size: 130%;
-    font-weight: bold;
-    word-wrap: break-word;
-    max-width: 43%;
-    position: relative;
-    top: 25.3%;
-    left: 12.5%;
-  }
-}
-
-.download-div {
-  position: relative;
-}
