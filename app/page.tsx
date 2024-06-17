@@ -131,7 +131,7 @@ export default function Home() {
                     id="oshikatsu"
                     value={formData.oshikatsu}
                     maxLength={7}
-                    className="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    className="oshikatsu block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="きょうりゅう"
                     required={true}
                     onInvalid={(e) => { e.target.setCustomValidity("入力してください") }}
@@ -152,7 +152,7 @@ export default function Home() {
                   id="mirai"
                   value={formData.mirai}
                   maxLength={36}
-                  className="block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="mirai block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="勝山は、いろんな魅力が恐竜級！私たちみんなでお待ちしています！"
                   required={true}
                   onInvalid={(e) => { e.target.setCustomValidity("入力してください") }}
@@ -174,7 +174,7 @@ export default function Home() {
                     id="penname"
                     value={formData.penname}
                     maxLength={10}
-                    className="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    className="pen-name block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="勝山たろう"
                     onChange={pennameChangeHandler}
                   />
@@ -188,7 +188,7 @@ export default function Home() {
               </label>
               <p className="form-note"></p>
               <div className="mt-2">
-                <div className="flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+                <div className="age-container flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                   <input
                     type="number"
                     name="age"
@@ -196,7 +196,7 @@ export default function Home() {
                     value={formData.age}
                     max={120}
                     placeholder="40"
-                    className="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    className=" age block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
                     onInvalid={(e) => { e.target.setCustomValidity("120まで入力できます") }}
                     onChange={ageChangeHandler}
                   />

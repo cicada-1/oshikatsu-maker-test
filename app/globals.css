@@ -53,6 +53,10 @@ body {
   font-size: 11px;
 }
 
+.age-container, .age {
+  max-width: 75px;
+}
+
 .screenshot-div {
   display: grid;
 }
