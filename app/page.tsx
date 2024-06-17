@@ -101,7 +101,7 @@ export default function Home() {
               <label htmlFor="oshikatsu" className="form-heading block font-semibold leading-6 text-gray-900">
                 あなたの「推し勝★」教えてください！
               </label>
-              <p className="form-note">※12字まで入力できます。</p>
+              <p className="form-note">※7字まで入力できます。</p>
               <div className="mt-2">
                 <div className="flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                   <input
@@ -109,7 +109,7 @@ export default function Home() {
                     name="oshikatsu"
                     id="oshikatsu"
                     value={formData.oshikatsu}
-                    maxLength={12}
+                    maxLength={7}
                     className="block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="きょうりゅう"
                     required={true}
@@ -130,7 +130,7 @@ export default function Home() {
                   name="mirai"
                   id="mirai"
                   value={formData.mirai}
-                  maxLength={50}
+                  maxLength={36}
                   className="block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="勝山は、いろんな魅力が恐竜級！私たちみんなでお待ちしています！"
                   required={true}
