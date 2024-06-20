@@ -239,15 +239,7 @@ export default function Home(this: any) {
                     onInvalid={existenceValidity}
                   />
                 </div>
-
-
               </div>
-            </div>
-
-            <div className="col-span-full">
-              <label htmlFor="check" className="block text-sm font-medium leading-6 text-gray-900">
-
-              </label>
             </div>
           </div>
         </div>
