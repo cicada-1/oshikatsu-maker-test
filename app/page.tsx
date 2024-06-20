@@ -5,9 +5,11 @@ import React from 'react';
 import { useState } from 'react';
 import * as htmlToImage from 'html-to-image';
 import { useRef } from 'react';
-import banner from './assets/images/oshikatsu-banner.jpg';
 import template from './assets/images/oshikatsu-template.jpg';
 import posterExample from './assets/images/poster-example.jpg';
+
+import Banner from './components/banner';
+import Explanation from './components/explanation'
 
 export default function Home(this: any) {
 
@@ -114,43 +116,9 @@ export default function Home(this: any) {
 
   return (
     <main className="flex min-h-screen flex-col items-center">
-      <a className="home-banner-button" href='/'>
-        <img
-          className="banner"
-          alt="not found"
-          src={banner.src}
-        />
-      </a>
+      <Banner />
 
-      <div className="heading m-5 flex flex-col items-center">
-        <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">私の「推し勝★」ジェネレーター</h1>
-        <p
-          className="explanation"
-          style={{ whiteSpace: 'pre-wrap' }}
-        >
-          自分の「推し勝★」を創ってみましょう！<br /> <br />
-          私の「推し勝★」ジェネレーターに：<br /> <br />
-          -「推し勝★」<br />
-          - 創る未来<br />
-          - ペンネーム<br />
-          - 年齢<br />
-          - 写真<br /> <br />
-          を入力して、キャンペーンのポスターのように自分のができます！
-        </p>
-          <div className="my-5 flex flex-col items-center">
-            <img
-              className="poster-example"
-              alt="not found"
-              src={posterExample.src}
-            />
-            <p className="image-note"><em>ポスターの例</em></p>
-          </div>
-        <p className="explanation">
-          このように完成すると、保存できますので、完成したポスターか、「保存する」のボタンをクリックしてください！<br />
-          ポスターを保存してから、「#私の推し勝」「#勝山しか勝たん山」のハッシュタグでSNSに投稿しましょう！<br />
-          では、私の「推し勝★」ジェネレーターで楽しみましょう！
-        </p>
-      </div>
+      <Explanation />
 
       <form onSubmit={handleSubmit} className="p-5">
         <div className="space-y-5 flex flex-col items-center">

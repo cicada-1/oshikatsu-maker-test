@@ -138,6 +138,8 @@ body {
 
 @media (min-width: 1025px) {
   .banner {
+    height: auto;
+    width: auto;
     max-width: 1024px;
   }
 
