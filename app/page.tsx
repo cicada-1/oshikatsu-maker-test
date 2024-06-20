@@ -133,7 +133,7 @@ export default function Home(this: any) {
           - 写真<br /><br />
           を入力して、キャンペーンのポスターのようにします！
           <img
-            className="poster-example my-3"
+            className="poster-example my-5"
             alt="not found"
             src={posterExample.src}
           />
@@ -190,7 +190,7 @@ export default function Home(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="penname" className="form-heading block font-semibold leading-6 text-gray-900">
-                あなたのペンネームは何ですか？
+                あなたのペンネームは何ですか？（任意）
               </label>
               <p className="form-note">※15字まで入力できます。</p>
               <div className="mt-2">
@@ -211,7 +211,7 @@ export default function Home(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="age" className="form-heading block font-semibold leading-6 text-gray-900">
-                おいくつですか？
+                おいくつですか？（任意）
               </label>
               <p className="form-note"></p>
               <div className="mt-2">
