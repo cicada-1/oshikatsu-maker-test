@@ -74,7 +74,7 @@ export default function Home(this: any) {
   };
 
   function autoScroll() {
-    window.location.replace("/#result");
+    window.location.replace("/#poster");
   };
 
   const screenshotRef = useRef(this);
@@ -289,7 +289,7 @@ export default function Home(this: any) {
 
         <div className="result mt-2">
           {submittedImage && (
-            <div>
+            <div id="poster">
               <div id="template" className="template flex flex-col items-center max-w-5xl p-5">
                 <h2 id="download-heading" className="download-heading font-bold align-center m-10">
                   写真をクリックすると、ダウンロードが始まります。
