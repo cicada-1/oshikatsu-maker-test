@@ -5,6 +5,8 @@ import React from 'react';
 import { useState } from 'react';
 import * as htmlToImage from 'html-to-image';
 import { useRef } from 'react';
+import banner from './assets/images/oshikatsu-banner.jpg';
+import template from './assets/images/oshikatsu-template.jpg';
 
 export default function Home(this: any) {
 
@@ -115,7 +117,7 @@ export default function Home(this: any) {
         <img
           className="banner"
           alt="not found"
-          src={"https://i.ibb.co/dkDBPnG/oshikatsu-banner.jpg"}
+          src={banner.src}
         />
       </a>
 
@@ -275,7 +277,7 @@ export default function Home(this: any) {
                     className="template-base"
                     id="template-base"
                     alt="not found"
-                  src="https://i.ibb.co/Hrv5tnV/oshikatsu-template.jpg"
+                    src={template.src}
                   />
 
                   <img
