@@ -7,6 +7,7 @@ import * as htmlToImage from 'html-to-image';
 import { useRef } from 'react';
 import banner from './assets/images/oshikatsu-banner.jpg';
 import template from './assets/images/oshikatsu-template.jpg';
+import posterExample from './assets/images/poster-example.jpg';
 
 export default function Home(this: any) {
 
@@ -121,11 +122,22 @@ export default function Home(this: any) {
         />
       </a>
 
-      <div className="heading my-5 flex flex-col items-center">
+      <div className="heading my-5 px-5 flex flex-col items-center">
         <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">私の「推し勝★」ジェネレーター</h1>
-        <p className="explanation">
-          自分の「推し勝★」を創りましょう！
-          「推し勝★」、創る未来、ペンネームと年齢、写真を入力して、キャンペーンのポスターのようにします！
+        <p className="explanation flex flex-col items-center">
+          自分の「推し勝★」を創りましょう！<br /><br />
+          -「推し勝★」<br />
+          - 創る未来<br />
+          - ペンネーム<br />
+          - 年齢<br />
+          - 写真<br /><br />
+          を入力して、キャンペーンのポスターのようにします！
+          <img
+            className="poster-example my-3"
+            alt="not found"
+            src={posterExample.src}
+          />
+          このように完成すると、保存できますので、完成したポスターか「保存する」のボタンをクリックしてください！<br />
           私の「推し勝★」ジェネレーターで楽しみましょう！
         </p>
       </div>
@@ -147,7 +159,7 @@ export default function Home(this: any) {
                     value={formData.oshikatsu}
                     maxLength={7}
                     className="oshikatsu block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                    placeholder="きょうりゅう"
+                    placeholder="山"
                     required={true}
                     onInvalid={existenceValidity}
                     onChange={oshikatsuChangeHandler}
@@ -168,7 +180,7 @@ export default function Home(this: any) {
                   value={formData.mirai}
                   maxLength={36}
                   className="mirai block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  placeholder="勝山は、いろんな魅力が恐竜級！私たちみんなでお待ちしています！"
+                  placeholder="勝山が山に囲まれて、守ってくれてるような感じです。登るのも楽しいです！"
                   required={true}
                   onInvalid={existenceValidity}
                   onChange={miraiChangeHandler}
@@ -210,7 +222,7 @@ export default function Home(this: any) {
                     id="age"
                     value={formData.age}
                     max={120}
-                    placeholder="40"
+                    placeholder="70"
                     className=" age block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
                     onInvalid={ageLimitValidity}
                     onChange={ageChangeHandler}
@@ -235,7 +247,7 @@ export default function Home(this: any) {
                   </div>
                 )}
 
-                <div className="image-input mt-4">
+                <div className="image-input mt-1">
                   <input
                     style={{ maxWidth: 250 }}
                     type="file"

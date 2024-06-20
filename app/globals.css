@@ -40,6 +40,11 @@ body {
 .explanation {
   max-width: 350px;
   word-wrap: break-word;
+  font-size: 15px;
+}
+
+.poster-example {
+  max-width: 300px;
 }
 
 .form {
