@@ -90,7 +90,7 @@ export default function Home(this: any) {
     htmlToImage.toJpeg(screenshotRef.current, { quality: 0.95 })
       .then(function (dataUrl) {
         var link = document.createElement('a');
-        link.download = 'my-oshikatsu.jpeg';
+        link.download = 'watashi-no-oshikatsu.jpeg';
         link.href = dataUrl;
         link.click();
       });
