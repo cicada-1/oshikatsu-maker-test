@@ -37,6 +37,19 @@ body {
   /* Specify the correct path to the font files */
 }
 
+.heading {
+  max-width: 500px;
+}
+
+.explanation {
+  word-wrap: break-word;
+  font-size: 15px;
+}
+
+.poster-example {
+  max-width: 300px;
+}
+
 .form {
   max-width: 350px;
 }
@@ -51,6 +64,11 @@ body {
 
 .form-note {
   font-size: 11px;
+  padding-left: 5px;
+}
+
+.form-field {
+  max-width: 350px;
 }
 
 .age-container, .age {

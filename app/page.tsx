@@ -7,6 +7,7 @@ import * as htmlToImage from 'html-to-image';
 import { useRef } from 'react';
 import banner from './assets/images/oshikatsu-banner.jpg';
 import template from './assets/images/oshikatsu-template.jpg';
+import posterExample from './assets/images/poster-example.jpg';
 
 export default function Home(this: any) {
 
@@ -121,25 +122,54 @@ export default function Home(this: any) {
         />
       </a>
 
+      <div className="heading m-5 flex flex-col items-center">
+        <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">私の「推し勝★」ジェネレーター</h1>
+        <p
+          className="explanation"
+          style={{ whiteSpace: 'pre-wrap' }}
+        >
+          自分の「推し勝★」を創ってみましょう！<br /> <br />
+          私の「推し勝★」ジェネレーターに：<br /> <br />
+          -「推し勝★」<br />
+          - 創る未来<br />
+          - ペンネーム<br />
+          - 年齢<br />
+          - 写真<br /> <br />
+          を入力して、キャンペーンのポスターのように自分のができます！
+        </p>
+          <div className="my-5 flex flex-col items-center">
+            <img
+              className="poster-example"
+              alt="not found"
+              src={posterExample.src}
+            />
+            <p className="image-note"><em>ポスターの例</em></p>
+          </div>
+        <p className="explanation">
+          このように完成すると、保存できますので、完成したポスターか、「保存する」のボタンをクリックしてください！<br />
+          ポスターを保存してから、「#私の推し勝」「#勝山しか勝たん山」のハッシュタグでSNSに投稿しましょう！<br />
+          では、私の「推し勝★」ジェネレーターで楽しみましょう！
+        </p>
+      </div>
+
       <form onSubmit={handleSubmit} className="p-5">
         <div className="space-y-5 flex flex-col items-center">
-          <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">私の「推し勝★」ジェネレーター</h1>
-          <div className="form mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="form mt-5 grid grid-cols-1 gap-x-6 gap-y-8">
             <div className="col-span-full">
               <label htmlFor="oshikatsu" className="form-heading block font-semibold leading-6 text-gray-900">
                 あなたの「推し勝★」を教えてください！
               </label>
               <p className="form-note">※7字まで入力できます。</p>
               <div className="mt-2">
-                <div className="flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <div className="form-field flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                   <input
                     type="text"
                     name="oshikatsu"
                     id="oshikatsu"
                     value={formData.oshikatsu}
                     maxLength={7}
-                    className="oshikatsu block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                    placeholder="きょうりゅう"
+                    className="oshikatsu block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
+                    placeholder="山"
                     required={true}
                     onInvalid={existenceValidity}
                     onChange={oshikatsuChangeHandler}
@@ -153,14 +183,14 @@ export default function Home(this: any) {
                 「推し勝★」でどんな未来を創る？
               </label>
               <p className="form-note">※36字まで入力できます。</p>
-              <div className="mt-2">
+              <div className="form-field mt-2">
                 <textarea
                   name="mirai"
                   id="mirai"
                   value={formData.mirai}
                   maxLength={36}
-                  className="mirai block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  placeholder="勝山は、いろんな魅力が恐竜級！私たちみんなでお待ちしています！"
+                  className="mirai block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+                  placeholder="勝山が山に囲まれて、守ってくれてるような感じです。登るのも楽しいです！"
                   required={true}
                   onInvalid={existenceValidity}
                   onChange={miraiChangeHandler}
@@ -170,18 +200,18 @@ export default function Home(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="penname" className="form-heading block font-semibold leading-6 text-gray-900">
-                あなたのペンネームは何ですか？
+                あなたのペンネームは何ですか？（任意）
               </label>
               <p className="form-note">※15字まで入力できます。</p>
               <div className="mt-2">
-                <div className="flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <div className="form-field flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                   <input
                     type="text"
                     name="penname"
                     id="penname"
                     value={formData.penname}
                     maxLength={15}
-                    className="pen-name block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    className="pen-name block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
                     placeholder="勝山たろう"
                     onChange={pennameChangeHandler}
                   />
@@ -191,7 +221,7 @@ export default function Home(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="age" className="form-heading block font-semibold leading-6 text-gray-900">
-                おいくつですか？
+                おいくつですか？（任意）
               </label>
               <p className="form-note"></p>
               <div className="mt-2">
@@ -202,7 +232,7 @@ export default function Home(this: any) {
                     id="age"
                     value={formData.age}
                     max={120}
-                    placeholder="40"
+                    placeholder="70"
                     className=" age block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
                     onInvalid={ageLimitValidity}
                     onChange={ageChangeHandler}
@@ -216,7 +246,7 @@ export default function Home(this: any) {
                 写真をアップしてください。
               </label>
               <p className="form-note">※テンプレートの写真スペースは横になっているので、縦の写真をアップする場合、全部が表示されない可能性があります。</p>
-              <div className="mt-4">
+              <div className="form-field mt-4">
                 {selectedImage && (
                   <div>
                     <img
@@ -227,32 +257,24 @@ export default function Home(this: any) {
                   </div>
                 )}
 
-                <div className="flex flex-col items-center">
+                <div className="image-input mt-1">
                   <input
                     style={{ maxWidth: 250 }}
                     type="file"
                     id="image"
                     name="image"
-                    className=""
+                    className="py-1.5"
                     onChange={imageHandler}
                     required={true}
                     onInvalid={existenceValidity}
                   />
                 </div>
-
-
               </div>
-            </div>
-
-            <div className="col-span-full">
-              <label htmlFor="check" className="block text-sm font-medium leading-6 text-gray-900">
-
-              </label>
             </div>
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col items-center gap-x-6">
+        <div className="my-6 flex flex-col items-center gap-x-6">
           <button
             type="submit"
             className="rounded-md bg-indigo-600 px-14 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -265,9 +287,9 @@ export default function Home(this: any) {
       <br />
       <br />
 
-        <div className="mt-2">
+        <div className="result mt-2">
           {submittedImage && (
-            <div id="result">
+            <div>
               <div id="template" className="template flex flex-col items-center max-w-5xl p-5">
                 <h2 id="download-heading" className="download-heading font-bold align-center m-10">
                   写真をクリックすると、ダウンロードが始まります。
@@ -294,7 +316,7 @@ export default function Home(this: any) {
                 </div>
                 <button
                   id="download-button"
-                  className="download-button rounded-md bg-indigo-600 mt-10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="download-button rounded-md bg-indigo-600 my-10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   onClick={screenshotDownload}
                 >
                   保存する
