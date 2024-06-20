@@ -37,6 +37,11 @@ body {
   /* Specify the correct path to the font files */
 }
 
+.explanation {
+  max-width: 350px;
+  word-wrap: break-word;
+}
+
 .form {
   max-width: 350px;
 }

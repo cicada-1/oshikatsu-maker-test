@@ -121,10 +121,18 @@ export default function Home(this: any) {
         />
       </a>
 
+      <div className="heading my-5 flex flex-col items-center">
+        <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">私の「推し勝★」ジェネレーター</h1>
+        <p className="explanation">
+          自分の「推し勝★」を創りましょう！
+          「推し勝★」、創る未来、ペンネームと年齢、写真を入力して、キャンペーンのポスターのようにします！
+          私の「推し勝★」ジェネレーターで楽しみましょう！
+        </p>
+      </div>
+
       <form onSubmit={handleSubmit} className="p-5">
         <div className="space-y-5 flex flex-col items-center">
-          <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">私の「推し勝★」ジェネレーター</h1>
-          <div className="form mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="form mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="col-span-full">
               <label htmlFor="oshikatsu" className="form-heading block font-semibold leading-6 text-gray-900">
                 あなたの「推し勝★」を教えてください！
@@ -257,9 +265,9 @@ export default function Home(this: any) {
       <br />
       <br />
 
-        <div className="mt-2">
+        <div className="result mt-2">
           {submittedImage && (
-            <div id="result">
+            <div>
               <div id="template" className="template flex flex-col items-center max-w-5xl p-5">
                 <h2 id="download-heading" className="download-heading font-bold align-center m-10">
                   写真をクリックすると、ダウンロードが始まります。
