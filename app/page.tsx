@@ -111,8 +111,9 @@ export default function Home(this: any) {
 
   return (
     <main className="flex min-h-screen flex-col items-center">
-      <a className="header" href='/'>
+      <a className="home-banner-button" href='/'>
         <img
+          className="banner"
           alt="not found"
           src={"https://i.ibb.co/dkDBPnG/oshikatsu-banner.jpg"}
         />

@@ -119,6 +119,10 @@ body {
 }
 
 @media (min-width: 1025px) {
+  .banner {
+    max-width: 1024px;
+  }
+
   .poster-oshikatsu {
     font-size: 350%;
   }
