@@ -111,12 +111,12 @@ export default function Home(this: any) {
 
   return (
     <main className="flex min-h-screen flex-col items-center">
-      <div className="header">
+      <a className="header" href='/'>
         <img
           alt="not found"
           src={"https://i.ibb.co/dkDBPnG/oshikatsu-banner.jpg"}
         />
-      </div>
+      </a>
 
       <form onSubmit={handleSubmit} className="p-5">
         <div className="space-y-5 flex flex-col items-center">
@@ -287,7 +287,7 @@ export default function Home(this: any) {
                   <p className="poster-oshikatsu" id="poster-oshikatsu">{submittedText.oshikatsu}</p>
                   <p className="poster-mirai" id="poster-mirai">{submittedText.mirai}</p>
                   <p className="poster-name-age" id="poster-name-age">{submittedText.penname}・{submittedText.age}歳</p>
-                  <div id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></div>
+                  <a id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></a>
                 </div>
                 <button
                   id="download-button"
