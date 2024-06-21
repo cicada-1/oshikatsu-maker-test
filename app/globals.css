@@ -47,6 +47,7 @@ body {
 }
 
 .poster-example {
+  height: auto;
   max-width: 300px;
 }
 
