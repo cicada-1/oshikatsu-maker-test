@@ -5,7 +5,8 @@ import React from 'react';
 import { useState } from 'react';
 
 import Banner from './components/banner';
-import Explanation from './components/explanation';
+import JapaneseExplanation from './components/japanese-explanation';
+import EnglishExplanation from './components/english-explanation';
 import JapaneseForm from './components/japanese-form';
 import EnglishForm from './components/english-form';
 
@@ -52,7 +53,12 @@ export default function Home(this: any) {
         </div>
       </div>
 
-      <Explanation />
+      <span className={japaneseActive}>
+        <JapaneseExplanation />
+      </span>
+      <span className={englishActive}>
+        <EnglishExplanation />
+      </span>
 
       <span className={japaneseActive}>
         <JapaneseForm />

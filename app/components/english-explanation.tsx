@@ -2,7 +2,7 @@ import React from 'react';
 import posterExample from '../assets/images/poster-example.jpg';
 import Image from 'next/image';
 
-export default function Explanation(this: any) {
+export default function EnglishExplanation(this: any) {
 
   return (
     <div className="heading m-5 flex flex-col items-center">
