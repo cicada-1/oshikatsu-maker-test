@@ -72,7 +72,7 @@ export default function Form(this: any) {
     window.location.replace("/#poster");
   };
 
-  function handleSubmit(e: any) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
     setSubmittedImage(e.target.image.files[0]);
     setSubmittedText({
@@ -88,16 +88,6 @@ export default function Form(this: any) {
   const screenshotRef = useRef(this);
 
   function screenshotDownload() {
-    {/* htmlToImage.toPng(screenshotRef.current)
-      .then(function (dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        screenshotRef.current.append(img);
-      })
-      .catch(function (error) {
-        console.error('oops, something went wrong!', error);
-      }); */}
-
     htmlToImage.toJpeg(screenshotRef.current, { quality: 0.95 })
       .then(function (dataUrl) {
         var link = document.createElement('a');
