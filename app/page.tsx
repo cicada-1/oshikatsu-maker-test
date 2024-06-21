@@ -54,13 +54,11 @@ export default function Home(this: any) {
 
       <Explanation />
 
-      <span>
-        <span className={japaneseActive}>
-          <JapaneseForm />
-        </span>
-        <span className={englishActive}>
-          <EnglishForm />
-        </span>
+      <span className={japaneseActive}>
+        <JapaneseForm />
+      </span>
+      <span className={englishActive}>
+        <EnglishForm />
       </span>
     </main >
   );
