@@ -13,15 +13,15 @@ export default function Home(this: any) {
 
   const [isActive, setIsActive] = useState(false);
 
-  let japaneseButtonClass = "";
-  let englishButtonClass = "";
+  let englishActive = "";
+  let japaneseActive = "";
 
   if (isActive) {
-    englishButtonClass = "hidden";
-    japaneseButtonClass = "";
+    japaneseActive = "hidden";
+    englishActive = "";
   } else {
-    englishButtonClass = "";
-    japaneseButtonClass = "hidden";
+    japaneseActive = "";
+    englishActive = "hidden";
   }
 
   return (
@@ -30,7 +30,7 @@ export default function Home(this: any) {
 
       <div className="under-banner flex mx-5 justify-end">
         <div className="language-buttons mt-3 mr-5 md:mr-10 flex justify-end">
-          <span className={japaneseButtonClass}>
+          <span className={englishActive}>
             <button
               type="button"
               onClick={() => setIsActive(false)}
@@ -40,7 +40,7 @@ export default function Home(this: any) {
             </button>
           </span>
 
-          <span className={englishButtonClass}>
+          <span className={japaneseActive}>
             <button
               type="button"
               onClick={() => setIsActive(true)}
@@ -54,7 +54,14 @@ export default function Home(this: any) {
 
       <Explanation />
 
-      <EnglishForm />
+      <span>
+        <span className={japaneseActive}>
+          <JapaneseForm />
+        </span>
+        <span className={englishActive}>
+          <EnglishForm />
+        </span>
+      </span>
     </main >
   );
 }
