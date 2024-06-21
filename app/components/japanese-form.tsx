@@ -4,7 +4,7 @@ import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
 import template from '../assets/images/oshikatsu-template.jpg';
 
-export default function Form(this: any) {
+export default function JapaneseForm(this: any) {
 
   const [formData, setFormData] = useState({
     oshikatsu: '',
@@ -65,7 +65,7 @@ export default function Form(this: any) {
   };
 
   const ageLimitValidity = (e: any) => {
-    e.target.setCustomValidity("120まで入力できます");
+    e.target.setCustomValidity("0から120まで入力できます");
   };
 
   function autoScroll() {
@@ -178,6 +178,7 @@ export default function Form(this: any) {
                     name="age"
                     id="age"
                     value={formData.age}
+                    min={0}
                     max={120}
                     placeholder="70"
                     className=" age block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"

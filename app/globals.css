@@ -37,6 +37,15 @@ body {
   /* Specify the correct path to the font files */
 }
 
+.under-banner {
+  width: 100%;
+  max-width: 1024px;
+}
+
+.language-buttons {
+  max-width: 1024px;
+}
+
 .heading {
   max-width: 500px;
 }
@@ -49,6 +58,10 @@ body {
 .poster-example {
   height: auto;
   max-width: 300px;
+}
+
+.image-note {
+  font-size: 14px;
 }
 
 .form {
