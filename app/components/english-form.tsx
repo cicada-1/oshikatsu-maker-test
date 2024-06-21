@@ -65,7 +65,7 @@ export default function EnglishForm(this: any) {
   };
 
   const ageLimitValidity = (e: any) => {
-    e.target.setCustomValidity("Max age is 120");
+    e.target.setCustomValidity("Please enter an age between 0 and 120");
   };
 
   function autoScroll() {

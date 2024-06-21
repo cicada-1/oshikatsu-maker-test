@@ -65,7 +65,7 @@ export default function JapaneseForm(this: any) {
   };
 
   const ageLimitValidity = (e: any) => {
-    e.target.setCustomValidity("120まで入力できます");
+    e.target.setCustomValidity("0から120まで入力できます");
   };
 
   function autoScroll() {
