@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 import Banner from './components/banner';
 import Explanation from './components/explanation';
-import Form from './components/form';
+import JapaneseForm from './components/japanese-form';
 
 export default function Home(this: any) {
 
@@ -53,7 +53,7 @@ export default function Home(this: any) {
 
       <Explanation />
 
-      <Form />
+      <JapaneseForm />
     </main >
   );
 }

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
 import template from '../assets/images/oshikatsu-template.jpg';
 
-export default function Form(this: any) {
+export default function JapaneseForm(this: any) {
 
   const [formData, setFormData] = useState({
     oshikatsu: '',
