@@ -4,7 +4,7 @@ import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
 import template from '../assets/images/oshikatsu-template.jpg';
 
-export default function JapaneseForm(this: any) {
+export default function EnglishForm(this: any) {
 
   const [formData, setFormData] = useState({
     oshikatsu: '',
@@ -61,11 +61,11 @@ export default function JapaneseForm(this: any) {
   };
 
   const existenceValidity = (e: any) => {
-    e.target.name == "image" ? e.target.setCustomValidity("写真をアップしてください") : e.target.setCustomValidity("入力してください");
+    e.target.name == "image" ? e.target.setCustomValidity("Please select an image") : e.target.setCustomValidity("Required field");
   };
 
   const ageLimitValidity = (e: any) => {
-    e.target.setCustomValidity("120まで入力できます");
+    e.target.setCustomValidity("Max age is 120");
   };
 
   function autoScroll() {
@@ -91,7 +91,7 @@ export default function JapaneseForm(this: any) {
     htmlToImage.toJpeg(screenshotRef.current, { quality: 0.95 })
       .then(function (dataUrl) {
         var link = document.createElement('a');
-        link.download = 'watashi-no-oshikatsu.jpeg';
+        link.download = 'my-oshikatsu.jpeg';
         link.href = dataUrl;
         link.click();
       });
@@ -104,9 +104,9 @@ export default function JapaneseForm(this: any) {
           <div className="form mt-5 grid grid-cols-1 gap-x-6 gap-y-8">
             <div className="col-span-full">
               <label htmlFor="oshikatsu" className="form-heading block font-semibold leading-6 text-gray-900">
-                あなたの「推し勝★」を教えてください！
+                What is your &quot;Oshi-Katsu&quot;?
               </label>
-              <p className="form-note">※7字まで入力できます。</p>
+              <p className="form-note">※ Please enter up to 13 characters</p>
               <div className="mt-2">
                 <div className="form-field flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                   <input
@@ -114,9 +114,9 @@ export default function JapaneseForm(this: any) {
                     name="oshikatsu"
                     id="oshikatsu"
                     value={formData.oshikatsu}
-                    maxLength={7}
+                    maxLength={13}
                     className="oshikatsu block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
-                    placeholder="山"
+                    placeholder="Mountains"
                     required={true}
                     onInvalid={existenceValidity}
                     onChange={oshikatsuChangeHandler}
@@ -127,17 +127,17 @@ export default function JapaneseForm(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="mirai" className="form-heading block font-semibold  leading-6 text-gray-900">
-                「推し勝★」でどんな未来を創る？
+                What is your belief for the future?
               </label>
-              <p className="form-note">※36字まで入力できます。</p>
+              <p className="form-note">※ Please enter up to 50 characters</p>
               <div className="form-field mt-2">
                 <textarea
                   name="mirai"
                   id="mirai"
                   value={formData.mirai}
-                  maxLength={36}
+                  maxLength={54}
                   className="mirai block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                  placeholder="勝山が山に囲まれて、守ってくれてるような感じです。登るのも楽しいです！"
+                  placeholder="It's as if the surrounding mountains protect the city!"
                   required={true}
                   onInvalid={existenceValidity}
                   onChange={miraiChangeHandler}
@@ -147,9 +147,9 @@ export default function JapaneseForm(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="penname" className="form-heading block font-semibold leading-6 text-gray-900">
-                あなたのペンネームは何ですか？（任意）
+                What is your nickname? (Optional)
               </label>
-              <p className="form-note">※15字まで入力できます。</p>
+              <p className="form-note">※ Please enter up to 15 characters</p>
               <div className="mt-2">
                 <div className="form-field flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                   <input
@@ -159,7 +159,7 @@ export default function JapaneseForm(this: any) {
                     value={formData.penname}
                     maxLength={15}
                     className="pen-name block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
-                    placeholder="勝山たろう"
+                    placeholder="Katsuyama Taro"
                     onChange={pennameChangeHandler}
                   />
                 </div>
@@ -168,7 +168,7 @@ export default function JapaneseForm(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="age" className="form-heading block font-semibold leading-6 text-gray-900">
-                おいくつですか？（任意）
+                How old are you? (Optional)
               </label>
               <p className="form-note"></p>
               <div className="mt-2">
@@ -191,9 +191,9 @@ export default function JapaneseForm(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="image" className="form-heading block font-semibold  leading-6 text-gray-900">
-                写真をアップしてください。
+                Please select an image
               </label>
-              <p className="form-note">※テンプレートの写真スペースは横になっているので、縦の写真をアップする場合、全部が表示されない可能性があります。</p>
+              <p className="form-note">※ The template only has space for landscape images, so any portrait images will be cropped to fit</p>
               <div className="form-field mt-4">
                 {selectedImage && (
                   <div>
@@ -228,7 +228,7 @@ export default function JapaneseForm(this: any) {
             type="submit"
             className="rounded-md bg-indigo-600 px-14 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            「推し勝★」を創る！
+            Generate My &quot;Oshi-Katsu&quot;!
           </button>
         </div>
       </form>
@@ -238,7 +238,7 @@ export default function JapaneseForm(this: any) {
           <div id="poster">
             <div id="template" className="template flex flex-col items-center max-w-5xl p-5">
               <h2 id="download-heading" className="download-heading font-bold align-center m-10">
-                写真をクリックすると、ダウンロードが始まります。
+                Click on the picture to download your poster.
               </h2>
               <div id="screenshot-div" ref={screenshotRef} className="screenshot-div flex flex-col items-center">
                 <Image
@@ -261,7 +261,7 @@ export default function JapaneseForm(this: any) {
 
                 <p className="poster-oshikatsu" id="poster-oshikatsu">{submittedText.oshikatsu}</p>
                 <p className="poster-mirai" id="poster-mirai">{submittedText.mirai}</p>
-                <p className="poster-name-age" id="poster-name-age">{submittedText.penname}・{submittedText.age}歳</p>
+                <p className="poster-name-age" id="poster-name-age">{submittedText.penname}・{submittedText.age} years old</p>
                 <a id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></a>
               </div>
               <button
@@ -269,11 +269,11 @@ export default function JapaneseForm(this: any) {
                 className="download-button rounded-md bg-indigo-600 my-10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 onClick={screenshotDownload}
               >
-                保存する
+                Download
               </button>
             </div>
           </div>
-          )}
+        )}
       </div>
     </div>
 
