@@ -1,8 +1,7 @@
 import React from 'react';
-import posterExample from '../assets/images/poster-example.jpg';
 import Image from 'next/image';
 
-export default function JapaneseExplanation() {
+export default function JapaneseExplanation(props: any) {
 
   return (
     <div className="heading m-5 flex flex-col items-center">
@@ -26,7 +25,7 @@ export default function JapaneseExplanation() {
           width={300}
           height={243}
           alt="not found"
-          src={posterExample.src}
+          src={props.poster.src}
         />
         <p className="image-note"><em>ポスターの例</em></p>
       </div>

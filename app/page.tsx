@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { useState } from 'react';
+import posterExample from './assets/images/poster-example.jpg';
 
 import Banner from './components/banner';
 import JapaneseExplanation from './components/japanese-explanation';
@@ -26,11 +27,15 @@ export default function Home() {
 
       {isJapanese ? (
         <span>
-          <JapaneseExplanation />
+          <JapaneseExplanation
+            poster={posterExample}
+          />
         </span>
       ) : (
         <span>
-          <EnglishExplanation />
+          <EnglishExplanation
+            poster={posterExample}
+          />
         </span>
       )}
 
