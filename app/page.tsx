@@ -3,11 +3,9 @@
 
 import React from 'react';
 import { useState } from 'react';
-import posterExample from './assets/images/poster-example.jpg';
 
 import Banner from './components/banner';
-import JapaneseExplanation from './components/japanese-explanation';
-import EnglishExplanation from './components/english-explanation';
+import Explanation from './components/explanation';
 import Form from './components/form';
 import LanguageButtons from './components/language-buttons';
 
@@ -26,39 +24,25 @@ export default function Home() {
 
       {isJapanese ? (
         <span>
-          <JapaneseExplanation
-            poster={posterExample}
+          <Explanation
+            setLanguage={isJapanese}
+            title='私の「推し勝★」ジェネレーター'
+            body1={`自分の「推し勝★」を創ってみましょう！\n\n私の「推し勝★」ジェネレーターに：\n\n-「推し勝★」\n- 創る未来\n- ペンネーム\n- 年齢\n- 写真\n\nを入力して、キャンペーンのポスターのように自分のができます！`}
+            imageNote='ポスターの例'
+            body2={`このように完成すると、保存できますので、完成したポスターか、「保存する」のボタンをクリックしてください！\nポスターを保存してから、「#私の推し勝」「#勝山しか勝たん山」のハッシュタグでSNSに投稿しましょう！\nでは、私の「推し勝★」ジェネレーターで楽しみましょう！`}
           />
         </span>
       ) : (
         <span>
-          <EnglishExplanation
-            poster={posterExample}
+          <Explanation
+            setLanguage={isJapanese}
+            title='My "Oshi-Katsu" Generator!'
+            body1={`Create your own "Oshi-Katsu" poster!\n\nPlease enter your:\n\n- "Oshi-Katsu"\n- belief for the future\n- nickname\n- age\n- picture\n\nto the generator and you can make your own poster, just like those of the official campaign!`}
+            imageNote='Example poster'
+            body2={`Once your poster has been generated, click on the generated poster or the "download" button below to download your poster.\nIf you upload your poster to social media, remember to use the hashtags #私の推し勝, #勝山しか勝たん山. Or in English #MyOshiKatsu, #KatsuyamaShikaKatanYama.\nHave fun with the My "Oshi-Katsu" Generator!`}
           />
         </span>
       )}
-
-      {/* English : {
-      oshikatsuQuestion: 'What is your "Oshi-Katsu"?',
-      oshikatsuNote: '※ Please enter up to 13 characters',
-      oshikatsuMaxLength: 13,
-      oshikatsuPlaceholder: 'Mountains',
-      miraiQuestion: 'What is your belief for the future?',
-      miraiNote: '※ Please enter up to 50 characters',
-      miraiMaxLength: 54,
-      miraiPlaceholder: `It's as if the surrounding mountains protect the city!`,
-      pennameQuestion: 'What is your nickname? (Optional)',
-      pennameNote: '※ Please enter up to 15 characters',
-      pennameMaxLength: 15,
-      pennamePlaceholder: 'Katsuyama Taro',
-      ageQuestion: 'How old are you? (Optional)',
-      ageMax: 120,
-      ageMin: 0,
-      agePlaceholder: '70',
-      imageQuestion: 'Please select an image',
-      imageNote: '※ The template only has space for landscape images, so any portrait images will be cropped to fit',
-    },
-  }; */}
 
       {isJapanese ? (
         <span>
