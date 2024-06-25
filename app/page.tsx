@@ -34,14 +34,15 @@ export default function Home() {
         </span>
       )}
 
-      {/*<span>
-        <JapaneseForm />
-      </span>
-
-
-      <span>
-        <EnglishForm />
-      </span> */}
+      {isJapanese ? (
+        <span>
+          <JapaneseForm />
+        </span>
+      ) : (
+        <span>
+          <EnglishForm />
+        </span>
+      )}
     </main>
   );
 }
