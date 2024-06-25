@@ -13,30 +13,35 @@ import LanguageButtons from './components/language-buttons';
 
 export default function Home() {
 
-  const [activeIndex, setActiveIndex] = useState(true);
+  const [isJapanese, setIsJapanese] = useState(true);
 
   return (
     <main className="flex min-h-screen flex-col items-center">
       <Banner />
 
       <LanguageButtons
-        setLanguage={activeIndex}
-        onChange={() => setActiveIndex(!activeIndex)}
+        setLanguage={isJapanese}
+        onChange={() => setIsJapanese(!isJapanese)}
       />
 
-      {/* <span className={japaneseActive}>
-        <JapaneseExplanation />
-      </span>
-      <span className={englishActive}>
-        <EnglishExplanation />
-      </span>
+      {isJapanese ? (
+        <span>
+          <JapaneseExplanation />
+        </span>
+      ) : (
+        <span>
+          <EnglishExplanation />
+        </span>
+      )}
 
-      <span className={japaneseActive}>
+      {/*<span>
         <JapaneseForm />
       </span>
-      <span className={englishActive}>
+
+
+      <span>
         <EnglishForm />
       </span> */}
-    </main >
+    </main>
   );
 }
