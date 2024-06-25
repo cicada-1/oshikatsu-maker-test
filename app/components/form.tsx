@@ -4,7 +4,7 @@ import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
 import template from '../assets/images/oshikatsu-template.jpg';
 
-export default function JapaneseForm(this: any) {
+export default function Form(props: any) {
 
   const [formData, setFormData] = useState({
     oshikatsu: '',
@@ -61,11 +61,19 @@ export default function JapaneseForm(this: any) {
   };
 
   const existenceValidity = (e: any) => {
-    e.target.name == "image" ? e.target.setCustomValidity("写真をアップしてください") : e.target.setCustomValidity("入力してください");
+    props.setLanguage ? (
+      e.target.name == "image" ? e.target.setCustomValidity("写真をアップしてください") : e.target.setCustomValidity("入力してください")
+    ) : (
+      e.target.name == "image" ? e.target.setCustomValidity("Please select an image") : e.target.setCustomValidity("Required field")
+    );
   };
 
   const ageLimitValidity = (e: any) => {
-    e.target.setCustomValidity("0から120まで入力できます");
+    props.setLanguage ? (
+      e.target.setCustomValidity("0から120まで入力できます")
+    ) : (
+      e.target.setCustomValidity("Please enter an age between 0 and 120")
+    );
   };
 
   function autoScroll() {
@@ -85,7 +93,7 @@ export default function JapaneseForm(this: any) {
     setTimeout(autoScroll, 500);
   };
 
-  const screenshotRef = useRef(this);
+  const screenshotRef = useRef(props.this);
 
   function screenshotDownload() {
     htmlToImage.toJpeg(screenshotRef.current, { quality: 0.95 })
@@ -104,9 +112,9 @@ export default function JapaneseForm(this: any) {
           <div className="form mt-5 grid grid-cols-1 gap-x-6 gap-y-8">
             <div className="col-span-full">
               <label htmlFor="oshikatsu" className="form-heading block font-semibold leading-6 text-gray-900">
-                あなたの「推し勝★」を教えてください！
+                {props.oshikatsuQuestion}
               </label>
-              <p className="form-note">※7字まで入力できます。</p>
+              <p className="form-note">{props.oshikatsuNote}</p>
               <div className="mt-2">
                 <div className="form-field flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                   <input
@@ -114,9 +122,9 @@ export default function JapaneseForm(this: any) {
                     name="oshikatsu"
                     id="oshikatsu"
                     value={formData.oshikatsu}
-                    maxLength={7}
+                    maxLength={props.oshikatsuMaxLength}
                     className="oshikatsu block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
-                    placeholder="山"
+                    placeholder={props.oshikatsuPlaceholder}
                     required={true}
                     onInvalid={existenceValidity}
                     onChange={oshikatsuChangeHandler}
@@ -127,17 +135,17 @@ export default function JapaneseForm(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="mirai" className="form-heading block font-semibold  leading-6 text-gray-900">
-                「推し勝★」でどんな未来を創る？
+                {props.miraiQuestion}
               </label>
-              <p className="form-note">※36字まで入力できます。</p>
+              <p className="form-note">{props.miraiNote}</p>
               <div className="form-field mt-2">
                 <textarea
                   name="mirai"
                   id="mirai"
                   value={formData.mirai}
-                  maxLength={36}
+                  maxLength={props.miraiMaxLength}
                   className="mirai block w-full mt-4 rounded-md border-0 py-1.5 pl-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                  placeholder="勝山が山に囲まれて、守ってくれてるような感じです。登るのも楽しいです！"
+                  placeholder={props.miraiPlaceholder}
                   required={true}
                   onInvalid={existenceValidity}
                   onChange={miraiChangeHandler}
@@ -147,9 +155,9 @@ export default function JapaneseForm(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="penname" className="form-heading block font-semibold leading-6 text-gray-900">
-                あなたのペンネームは何ですか？（任意）
+                {props.pennameQuestion}
               </label>
-              <p className="form-note">※15字まで入力できます。</p>
+              <p className="form-note">{props.pennameNote}</p>
               <div className="mt-2">
                 <div className="form-field flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                   <input
@@ -159,7 +167,7 @@ export default function JapaneseForm(this: any) {
                     value={formData.penname}
                     maxLength={15}
                     className="pen-name block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
-                    placeholder="勝山たろう"
+                    placeholder={props.pennamePlaceholder}
                     onChange={pennameChangeHandler}
                   />
                 </div>
@@ -168,7 +176,7 @@ export default function JapaneseForm(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="age" className="form-heading block font-semibold leading-6 text-gray-900">
-                おいくつですか？（任意）
+                {props.ageQuestion}
               </label>
               <p className="form-note"></p>
               <div className="mt-2">
@@ -191,9 +199,9 @@ export default function JapaneseForm(this: any) {
 
             <div className="col-span-full">
               <label htmlFor="image" className="form-heading block font-semibold  leading-6 text-gray-900">
-                写真をアップしてください。
+                {props.imageQuestion}
               </label>
-              <p className="form-note">※テンプレートの写真スペースは横になっているので、縦の写真をアップする場合、全部が表示されない可能性があります。</p>
+              <p className="form-note">{props.imageNote}</p>
               <div className="form-field mt-4">
                 {selectedImage && (
                   <div>
@@ -228,7 +236,7 @@ export default function JapaneseForm(this: any) {
             type="submit"
             className="rounded-md bg-indigo-600 px-14 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            「推し勝★」を創る！
+            {props.submitButtonText}
           </button>
         </div>
       </form>
@@ -273,7 +281,7 @@ export default function JapaneseForm(this: any) {
               </button>
             </div>
           </div>
-          )}
+        )}
       </div>
     </div>
 
