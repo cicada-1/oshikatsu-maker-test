@@ -4,8 +4,6 @@ import posterExample from '../assets/images/poster-example.jpg';
 
 export default function JapaneseExplanation(props: any) {
 
-  console.log(props);
-
   return (
     <div className="heading m-5 flex flex-col items-center">
       <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">{props.title}</h1>
