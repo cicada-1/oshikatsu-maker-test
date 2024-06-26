@@ -39,7 +39,7 @@ export default function Form(props: any) {
 
   const existenceValidity = (e: any) => {
     props.setLanguage ? (
-      e.target.name == "image" ? e.target.setCustomValidity("写真をアップしてください") : e.target.setCustomValidity("入力してください")
+      e.target.name == "image" ? e.target.setCustomValidity("写真を選択してください") : e.target.setCustomValidity("入力してください")
     ) : (
       e.target.name == "image" ? e.target.setCustomValidity("Please select an image") : e.target.setCustomValidity("Required field")
     );
