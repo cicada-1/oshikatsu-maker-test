@@ -244,6 +244,7 @@ export default function Form(props: any) {
       </form>
 
       <PosterOutput
+        setLanguage={props.setLanguage}
         submittedText={submittedText}
         submittedImage={submittedImage}
       />
