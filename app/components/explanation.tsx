@@ -15,7 +15,7 @@ export default function JapaneseExplanation(props: any) {
       title: 'My "Oshi-Katsu" Generator!',
       body1: `Create your own "Oshi-Katsu" poster!\n\nPlease enter your:\n\n- "Oshi-Katsu"\n- belief for the future\n- nickname\n- age\n- picture\n\nto the generator and you can make your own poster, just like those of the official campaign!`,
       imageNote: 'Example poster',
-      body2: `Once your poster has been generated, click on the generated poster or the "download" button below to download your poster.\nIf you upload your poster to social media, remember to use the hashtags #私の推し勝, #勝山しか勝たん山. Or in English #MyOshiKatsu, #KatsuyamaShikaKatanYama.\nHave fun with the My "Oshi-Katsu" Generator!`,
+      body2: `Once your poster has been generated, click on the generated poster or the "Download" button below to download your poster.\nIf you upload your poster to social media, remember to use the hashtags #私の推し勝, #勝山しか勝たん山. Or in English #MyOshiKatsu, #KatsuyamaShikaKatanYama.\nHave fun with the My "Oshi-Katsu" Generator!`,
     },
   };
 
