@@ -25,15 +25,14 @@ export default function Form(props: any) {
   });
 
   const changeHandler = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-    e.target.setCustomValidity("");
-  };
-
-  const imageHandler = (e: any) => {
-    setSelectedImage(e.target.files[0]);
+    e.target.name == "image" ? (
+      setSelectedImage(e.target.files[0])
+    ) : (
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    )
     e.target.setCustomValidity("");
   };
 
@@ -198,7 +197,7 @@ export default function Form(props: any) {
                     id="image"
                     name="image"
                     className="py-1.5"
-                    onChange={imageHandler}
+                    onChange={changeHandler}
                     required={true}
                     onInvalid={existenceValidity}
                   />
