@@ -2,7 +2,7 @@ import React from 'react';
 import banner from '../assets/images/oshikatsu-banner.jpg';
 import Image from 'next/image';
 
-export default function Banner(this: any) {
+export default function Banner() {
 
   return (
     <a className="home-banner-button" href='/'>
