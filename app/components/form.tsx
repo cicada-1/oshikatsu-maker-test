@@ -24,30 +24,7 @@ export default function Form(props: any) {
     age: '',
   });
 
-  const oshikatsuChangeHandler = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-    e.target.setCustomValidity("");
-  };
-
-  const miraiChangeHandler = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-    e.target.setCustomValidity("");
-  };
-
-  const pennameChangeHandler = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const ageChangeHandler = (e: any) => {
+  const changeHandler = (e: any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -127,7 +104,7 @@ export default function Form(props: any) {
                     placeholder={props.oshikatsuPlaceholder}
                     required={true}
                     onInvalid={existenceValidity}
-                    onChange={oshikatsuChangeHandler}
+                    onChange={changeHandler}
                   />
                 </div>
               </div>
@@ -148,7 +125,7 @@ export default function Form(props: any) {
                   placeholder={props.miraiPlaceholder}
                   required={true}
                   onInvalid={existenceValidity}
-                  onChange={miraiChangeHandler}
+                  onChange={changeHandler}
                 />
               </div>
             </div>
@@ -168,7 +145,7 @@ export default function Form(props: any) {
                     maxLength={15}
                     className="pen-name block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
                     placeholder={props.pennamePlaceholder}
-                    onChange={pennameChangeHandler}
+                    onChange={changeHandler}
                   />
                 </div>
               </div>
@@ -191,7 +168,7 @@ export default function Form(props: any) {
                     placeholder="70"
                     className=" age block flex-1 rounded-md border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0"
                     onInvalid={ageLimitValidity}
-                    onChange={ageChangeHandler}
+                    onChange={changeHandler}
                   />
                 </div>
               </div>
