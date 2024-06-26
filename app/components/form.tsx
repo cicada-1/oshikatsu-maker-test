@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-import * as htmlToImage from 'html-to-image';
-import template from '../assets/images/oshikatsu-template.jpg';
+import PosterOutput from './poster-output';
 
 export default function Form(props: any) {
 
@@ -25,7 +24,7 @@ export default function Form(props: any) {
   });
 
   const changeHandler = (e: any) => {
-    e.target.name == "image" ? (
+    e.target.name === "image" ? (
       setSelectedImage(e.target.files[0])
     ) : (
       setFormData({
@@ -38,9 +37,9 @@ export default function Form(props: any) {
 
   const existenceValidity = (e: any) => {
     props.setLanguage ? (
-      e.target.name == "image" ? e.target.setCustomValidity("写真を選択してください") : e.target.setCustomValidity("入力してください")
+      e.target.name === "image" ? e.target.setCustomValidity("写真を選択してください") : e.target.setCustomValidity("入力してください")
     ) : (
-      e.target.name == "image" ? e.target.setCustomValidity("Please select an image") : e.target.setCustomValidity("Required field")
+      e.target.name === "image" ? e.target.setCustomValidity("Please select an image") : e.target.setCustomValidity("Required field")
     );
   };
 
@@ -67,18 +66,6 @@ export default function Form(props: any) {
       [e.target.age.name]: e.target.age.value,
     });
     setTimeout(autoScroll, 500);
-  };
-
-  const screenshotRef = useRef(props.this);
-
-  function screenshotDownload() {
-    htmlToImage.toJpeg(screenshotRef.current, { quality: 0.95 })
-      .then(function (dataUrl) {
-        var link = document.createElement('a');
-        link.download = 'watashi-no-oshikatsu.jpeg';
-        link.href = dataUrl;
-        link.click();
-      });
   };
 
   return (
@@ -217,48 +204,10 @@ export default function Form(props: any) {
         </div>
       </form>
 
-      <div className="result mt-2">
-        {submittedImage && (
-          <div id="poster">
-            <div id="template" className="template flex flex-col items-center max-w-5xl p-5">
-              <h2 id="download-heading" className="download-heading font-bold align-center m-10">
-                写真をクリックすると、ダウンロードが始まります。
-              </h2>
-              <div id="screenshot-div" ref={screenshotRef} className="screenshot-div flex flex-col items-center">
-                <Image
-                  className="template-base"
-                  id="template-base"
-                  width={984}
-                  height={1387}
-                  alt="not found"
-                  src={template.src}
-                />
-
-                <Image
-                  className="picture"
-                  id="picture"
-                  width={646}
-                  height={424.5}
-                  alt="not found"
-                  src={URL.createObjectURL(submittedImage)}
-                />
-
-                <p className="poster-oshikatsu" id="poster-oshikatsu">{submittedText.oshikatsu}</p>
-                <p className="poster-mirai" id="poster-mirai">{submittedText.mirai}</p>
-                <p className="poster-name-age" id="poster-name-age">{submittedText.penname}・{submittedText.age}歳</p>
-                <a id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></a>
-              </div>
-              <button
-                id="download-button"
-                className="download-button rounded-md bg-indigo-600 my-10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                onClick={screenshotDownload}
-              >
-                保存する
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+      <PosterOutput
+        submittedText={submittedText}
+        submittedImage={submittedImage}
+      />
     </div>
 
   );
