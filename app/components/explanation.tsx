@@ -19,7 +19,7 @@ export default function JapaneseExplanation(props: any) {
     },
   };
 
-  var explanation = props.setLanguage ? explanationText.Japanese : explanationText.English ;
+  var explanation = props.setLanguage ? explanationText.Japanese : explanationText.English;
 
   return (
     <div className="heading m-5 flex flex-col items-center">
