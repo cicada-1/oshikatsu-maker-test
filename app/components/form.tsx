@@ -31,13 +31,13 @@ export default function Form(props: any) {
       miraiQuestion: 'What is your belief for the future?',
       miraiNote: '※ Please enter up to 54 characters',
       miraiMaxLength: 54,
-      miraiPlaceholder: "It's as if the surrounding mountains protect the city!",
+      miraiPlaceholder: "The mountains are a part of the city.",
       pennameQuestion: 'What is your nickname? (Optional)',
       pennameNote: '※ Please enter up to 15 characters',
       pennamePlaceholder: 'Taro Katsuyama',
       ageQuestion: 'How old are you? (Optional)',
       imageQuestion: 'Please select an image',
-      imageNote: '※ The template only has space for landscape images, so any portrait images will be cropped to fit',
+      imageNote: '※ The template only has space for landscape images, so portrait images will be cropped to fit',
       submitButtonText: 'Generate My "Oshi-Katsu"!',
     }
   };
