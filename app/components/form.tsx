@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { useState, useRef } from 'react';
 import Image from 'next/image';
@@ -217,11 +218,9 @@ export default function Form(this: any) {
                 写真をクリックすると、ダウンロードが始まります。
               </h2>
               <div id="screenshot-div" ref={screenshotRef} className="screenshot-div flex flex-col items-center">
-                <Image
+                <img
                   className="template-base"
                   id="template-base"
-                  width={984}
-                  height={1387}
                   alt="not found"
                   src={template.src}
                 />
