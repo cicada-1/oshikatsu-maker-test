@@ -93,21 +93,28 @@ body {
   display: grid;
 }
 
-.template-base, .download-div, .picture, .poster-oshikatsu, .poster-mirai, .poster-name-age {
+.template-base, .download-div, .picture, .corner-tag, .poster-oshikatsu, .poster-mirai, .poster-name-age {
   grid-column: 1;
   grid-row: 1;
 }
 
-.picture, .poster-oshikatsu, .poster-mirai, .poster-name-age, .download-div {
+.picture, .corner-tag, .poster-oshikatsu, .poster-mirai, .poster-name-age, .download-div {
   position: relative;
 }
 
 .picture {
   object-fit: cover;
-  height: 30.6%;
-  width: 65.65%;
+  height: 30.1%;
+  width: 70.3%;
   bottom: 23.3%;
-  left: 13.8%;
+  left: 13.5%;
+  border-radius: 0px 8px 8px 8px;
+}
+
+.corner-tag {
+  max-width: 12.7%;
+  bottom: 31.55%;
+  left: 80.6%;
 }
 
 .poster-oshikatsu {

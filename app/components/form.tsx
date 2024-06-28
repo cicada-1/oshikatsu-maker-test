@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
 import template from '../assets/images/oshikatsu-template.jpg';
+import cornerTag from '../assets/images/watashi-no-oshikatsu-corner-tag.png'
 
 export default function Form(this: any) {
 
@@ -232,6 +233,13 @@ export default function Form(this: any) {
                   height={424.5}
                   alt="not found"
                   src={URL.createObjectURL(submittedImage)}
+                />
+
+                <img
+                  className="corner-tag"
+                  id="corner-tag"
+                  alt="not found"
+                  src={cornerTag.src}
                 />
 
                 <p className="poster-oshikatsu" id="poster-oshikatsu">{submittedText.oshikatsu}</p>
