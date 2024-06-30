@@ -204,7 +204,7 @@ export default function Form(this: any) {
         <div className="my-6 flex flex-col items-center gap-x-6">
           <button
             type="submit"
-            className="rounded-md bg-turquoise-600 px-14 py-2 text-sm font-semibold text-white shadow-sm hover:bg-turquoise-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turquoise-600"
+            className="rounded-md bg-green-600 px-14 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-turquoise-600"
           >
             「推し勝★」を創る！
           </button>
@@ -249,7 +249,7 @@ export default function Form(this: any) {
               </div>
               <button
                 id="download-button"
-                className="download-button rounded-md bg-turquoise-600 my-10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-turquoise-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="download-button rounded-md bg-green-600 my-10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 onClick={screenshotDownload}
               >
                 保存する
