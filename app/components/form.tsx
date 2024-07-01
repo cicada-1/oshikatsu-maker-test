@@ -50,6 +50,7 @@ export default function Form(props: any) {
     mirai: '',
     penname: '',
     age: '',
+    image: '',
   });
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -64,14 +65,13 @@ export default function Form(props: any) {
   });
 
   const changeHandler = (e: any) => {
-    e.target.name === "image" ? (
+    if(e.target.name === "image"){
       setSelectedImage(e.target.files[0])
-    ) : (
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value
-      })
-    )
+    }
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
     e.target.setCustomValidity("");
   };
 
@@ -91,7 +91,7 @@ export default function Form(props: any) {
     );
   };
 
-  function autoScroll() {
+  function posterScroll() {
     window.location.replace("/#poster");
   };
 
@@ -105,12 +105,12 @@ export default function Form(props: any) {
       [e.target.penname.name]: e.target.penname.value,
       [e.target.age.name]: e.target.age.value,
     });
-    setTimeout(autoScroll, 500);
+    setTimeout(posterScroll, 500);
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="p-5">
+      <form id="form" onSubmit={handleSubmit} className="p-5">
         <div className="space-y-5 flex flex-col items-center">
           <div className="form mt-5 grid grid-cols-1 gap-x-6 gap-y-8">
             <div className="col-span-full">
@@ -219,11 +219,12 @@ export default function Form(props: any) {
 
                 <div className="image-input mt-1">
                   <input
+                    className="py-1.5"
                     style={{ maxWidth: 250 }}
                     type="file"
                     id="image"
                     name="image"
-                    className="py-1.5"
+                    value={formData.image}
                     onChange={changeHandler}
                     required={true}
                     onInvalid={existenceValidity}
@@ -246,6 +247,8 @@ export default function Form(props: any) {
 
       <Output
         setLanguage={props.setLanguage}
+        setSelectedImage={setSelectedImage}
+        setFormData={setFormData}
         submittedImage={submittedImage}
         submittedText={submittedText}
       />
