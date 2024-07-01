@@ -36,10 +36,10 @@ export default function Explanation(props: any) {
           alt="not found"
           src={posterExampleJp.src}
         />
-        <p className="image-note"><em>ポスターの例</em></p>
+        <p className="image-note"><em>{explanation.imageNote}</em></p>
       </div>
       <p className="explanation">
-        {explanation.imageNote}
+        {explanation.body2}
       </p>
       <p className="explanation-note">
         {explanation.note}
