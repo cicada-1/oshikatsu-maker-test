@@ -21,9 +21,13 @@ export default function Home() {
         onChange={() => setIsJapanese(!isJapanese)}
       />
 
-      <Explanation />
+      <Explanation
+        setLanguage={isJapanese}
+      />
 
-      <Form />
+      <Form
+        setLanguage={isJapanese}
+      />
     </main>
   );
 }
