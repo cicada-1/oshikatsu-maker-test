@@ -17,7 +17,7 @@ export default function Explanation(props: any) {
       body1: `Create your own "Oshi-Katsu" poster!\n\nPlease enter your:\n\n- "Oshi-Katsu"\n- belief for the future\n- nickname\n- age\n- picture\n\nto the generator and you can make your own poster, just like those of the official campaign!`,
       imageNote: 'Example poster',
       body2: `Once your poster has been generated, click on the generated poster or the "Download" button below to download your poster.\nIf you upload your poster to social media, remember to use the hashtags #私の推し勝, #勝山しか勝たん山. Or in English #MyOshiKatsu, #KatsuyamaShikaKatanYama.\nHave fun with the My "Oshi-Katsu" Generator!`,
-      note: `*iPhoneで保存機能が動きませんので、iPhoneの方がスクリーンショットを撮ってください。\n"音量を減らす"ボタンと"画面をロックする"ボタンを同時に押すと、スクリーンショットが撮れます。ご迷惑をかけして申し訳ありません。`,
+      note: `\n*The download function is not compatible with iPhones, so if you are using an iPhone please take a screenshot instead.\nYou can take a screenshot by pressing the "volume down" button and the "lock" button at the same time. Sorry for any inconvenience.`,
     },
   };
 
@@ -27,7 +27,7 @@ export default function Explanation(props: any) {
     <div className="heading m-5 flex flex-col items-center">
       <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">{explanation.title}</h1>
       <p className="explanation">
-        {explanation.body1}<br /> <br />
+        {explanation.body1}
       </p>
       <div className="my-5 flex flex-col items-center">
         <Image
