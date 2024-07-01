@@ -50,9 +50,17 @@ body {
   max-width: 500px;
 }
 
-.explanation {
+.explanation, .explanation-note {
   word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.explanation {
   font-size: 15px;
+}
+
+.explanation-note {
+  font-size: 13px;
 }
 
 .poster-example {

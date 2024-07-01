@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "私の「推し勝」ジェネレーター",
+  title: "私の「推し勝」メーカー",
   description: "勝山市の７０周年のキャンペーン",
 };
 
