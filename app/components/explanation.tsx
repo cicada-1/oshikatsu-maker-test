@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import posterExampleJp from '../assets/images/poster-example-jp.jpg';
+import posterExampleEn from '../assets/images/poster-example-en.jpg';
 
 export default function Explanation(props: any) {
   const explanationText = {
@@ -34,7 +35,7 @@ export default function Explanation(props: any) {
           width={300}
           height={243}
           alt="not found"
-          src={posterExampleJp.src}
+          src={props.setLanguage ? posterExampleJp.src : posterExampleEn.src}
         />
         <p className="image-note"><em>{explanation.imageNote}</em></p>
       </div>
