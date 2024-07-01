@@ -62,7 +62,7 @@ export default function Output(props: any) {
               <h2 id="download-heading" className="download-heading font-bold align-center m-10">
                 {outputText.heading}
               </h2>
-              <div className="output-buttons mb-10 flex">
+              <div className="output-buttons mb-10 space-x-5">
                 <button
                   id="download-button"
                   className="download-button rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
