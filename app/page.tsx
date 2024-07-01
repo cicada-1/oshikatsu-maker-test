@@ -25,7 +25,9 @@ export default function Home() {
         setLanguage={isJapanese}
       />
 
-      <Form />
+      <Form
+        setLanguage={isJapanese}
+      />
     </main>
   );
 }
