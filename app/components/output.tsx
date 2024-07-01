@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
 import template from '../assets/images/oshikatsu-template.jpg';
-import cornerTag from '../assets/images/watashi-no-oshikatsu-corner-tag.png'
+import cornerTag from '../assets/images/watashi-no-oshikatsu-corner-tag.png';
 
 export default function Output(props: any) {
 
@@ -13,15 +13,34 @@ export default function Output(props: any) {
       heading: '写真か「保存する」ボタンをクリックすると、ダウンロードが始まります。',
       age: '歳',
       downloadButton: '保存する',
+      newOshikatsuButton: '最初から創る',
     },
     English: {
       heading: 'Click on the picture or the "Download" button to download your poster',
       age: ' years old',
       downloadButton: 'Download',
+      newOshikatsuButton: 'New "Oshi-Katsu"',
     },
   };
 
-  var outputText = props.setLanguage ? outputTextLanguages.Japanese : outputTextLanguages.English;
+  let outputText = props.setLanguage ? outputTextLanguages.Japanese : outputTextLanguages.English;
+
+  function formScroll() {
+    window.location.replace("/#form");
+  };
+
+  const clickHandler = (e: any) => {
+    e.preventDefault();
+    props.setFormData({
+      oshikatsu: '',
+      mirai: '',
+      penname: '',
+      age: '',
+      image: '',
+    });
+    props.setSelectedImage(null);
+    formScroll();
+  };
 
   const screenshotRef = useRef(props.this);
 
@@ -43,6 +62,22 @@ export default function Output(props: any) {
               <h2 id="download-heading" className="download-heading font-bold align-center m-10">
                 {outputText.heading}
               </h2>
+              <div className="output-buttons mb-10 space-x-5">
+                <button
+                  id="download-button"
+                  className="download-button rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={screenshotDownload}
+                >
+                  {outputText.downloadButton}
+                </button>
+                <button
+                  id="new-oshikatsu-button"
+                  className="new-oshikatsu-button rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={clickHandler}
+                >
+                  {outputText.newOshikatsuButton}
+                </button>
+              </div>
               <div id="screenshot-div" ref={screenshotRef} className="screenshot-div flex flex-col items-center">
                 <img
                   className="template-base"
@@ -69,16 +104,9 @@ export default function Output(props: any) {
 
                 <p className="poster-oshikatsu" id="poster-oshikatsu">{props.submittedText.oshikatsu}</p>
                 <p className="poster-mirai" id="poster-mirai">{props.submittedText.mirai}</p>
-              <p className="poster-name-age" id="poster-name-age">{props.submittedText.penname}・{props.submittedText.age}{outputText.age}</p>
+                <p className="poster-name-age" id="poster-name-age">{props.submittedText.penname}・{props.submittedText.age}{outputText.age}</p>
                 <a id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></a>
               </div>
-              <button
-                id="download-button"
-                className="download-button rounded-md bg-green-600 my-10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                onClick={screenshotDownload}
-              >
-                {outputText.downloadButton}
-              </button>
             </div>
           </div>
         )}
