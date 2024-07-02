@@ -13,10 +13,6 @@ export default function Home() {
 
   const [isJapanese, setIsJapanese] = useState(true);
 
-  function scrollToTop() {
-    window.location.replace("/#banner")
-  };
-
   return (
     <main className="flex min-h-screen flex-col items-center">
       <Banner />
