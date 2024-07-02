@@ -57,7 +57,7 @@ export default function Output(props: any) {
   return (
       <div className="result mt-2">
         {props.submittedImage && (
-          <div id="poster">
+          <div id="poster" className="poster">
             <div id="template" className="template flex flex-col items-center max-w-5xl p-5">
               <h2 id="download-heading" className="download-heading font-bold align-center m-10">
                 {outputText.heading}
@@ -72,7 +72,7 @@ export default function Output(props: any) {
                 </button>
                 <button
                   id="new-oshikatsu-button"
-                  className="new-oshikatsu-button rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="new-oshikatsu-button rounded-md bg-yellow-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   onClick={clickHandler}
                 >
                   {outputText.newOshikatsuButton}
