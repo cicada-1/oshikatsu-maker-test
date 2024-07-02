@@ -2,6 +2,7 @@
 'use client';
 
 import React from 'react';
+import scrollTopImage from '../assets/images/scroll-top-image.png';
 
 export default function ScrollTopButton() {
 
@@ -21,7 +22,7 @@ export default function ScrollTopButton() {
           width={50}
           height={50}
           alt="not found"
-          src="https://cdn-icons-png.flaticon.com/512/6051/6051376.png"
+          src={scrollTopImage.src}
         />
       </button>
     </div>

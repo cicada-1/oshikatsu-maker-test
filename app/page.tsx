@@ -3,7 +3,6 @@
 
 import React from 'react';
 import { useState } from 'react';
-import Image from 'next/image';
 import Banner from './components/banner';
 import LanguageButtons from './components/language-buttons';
 import Explanation from './components/explanation';
