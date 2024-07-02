@@ -97,6 +97,10 @@ body {
   max-width: 75px;
 }
 
+.poster {
+  margin-bottom: 40px;
+}
+
 .screenshot-div {
   display: grid;
 }
