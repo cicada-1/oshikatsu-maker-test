@@ -7,6 +7,7 @@ export default function Banner() {
   return (
     <a className="home-banner-button" href='/'>
       <Image
+        id="banner"
         className="banner"
         priority={true}
         width={1024}
