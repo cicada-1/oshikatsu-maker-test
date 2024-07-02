@@ -24,7 +24,7 @@ export default function Explanation(props: any) {
   let explanation = props.setLanguage ? explanationText.Japanese : explanationText.English;
 
   return (
-    <div className="heading m-5 flex flex-col items-center">
+    <div className="heading m-5 mt-1 flex flex-col items-center">
       <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">{explanation.title}</h1>
       <p className="explanation">
         {explanation.body1}
