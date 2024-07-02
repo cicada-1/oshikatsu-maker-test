@@ -7,10 +7,15 @@ import Banner from './components/banner';
 import LanguageButtons from './components/language-buttons';
 import Explanation from './components/explanation';
 import Form from './components/form';
+import ScrollTopButton from './components/scroll-top-button';
 
 export default function Home() {
 
   const [isJapanese, setIsJapanese] = useState(true);
+
+  function scrollToTop() {
+    window.location.replace("/#banner")
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center">
@@ -28,6 +33,8 @@ export default function Home() {
       <Form
         setLanguage={isJapanese}
       />
+
+      <ScrollTopButton />
     </main>
   );
 }

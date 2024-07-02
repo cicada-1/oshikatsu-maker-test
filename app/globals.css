@@ -151,6 +151,12 @@ body {
   left: 12.5%;
 }
 
+.scroll-button-div {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
 @media (max-width: 1024px) {
   .poster-oshikatsu {
     font-size: 5.1vw;
@@ -166,10 +172,8 @@ body {
 }
 
 @media (min-width: 1025px) {
-  .banner {
-    height: auto;
-    width: auto;
-    max-width: 1024px;
+  .banner, .scroll-button-div {
+    width: 1024px;
   }
 
   .poster-oshikatsu {
