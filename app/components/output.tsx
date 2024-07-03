@@ -3,7 +3,6 @@ import React from 'react';
 import { useRef } from 'react';
 import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
-import { FacebookShareButton, TwitterShareButton, LineShareButton, FacebookIcon, XIcon, LineIcon } from 'react-share';
 import template from '../assets/images/oshikatsu-template.jpg';
 import cornerTag from '../assets/images/watashi-no-oshikatsu-corner-tag.png';
 
@@ -15,14 +14,12 @@ export default function Output(props: any) {
       age: '歳',
       downloadButton: '保存する',
       newOshikatsuButton: '新規作成',
-      shareInfo: `「推し勝★」メーカーをみんなにシェアしましょう！`,
     },
     English: {
       heading: 'Click on the picture or the "Download" button to download your poster',
       age: ' years old',
       downloadButton: 'Download',
       newOshikatsuButton: 'New "Oshi-Katsu"',
-      shareInfo: 'Share "My Oshi-Katsu Generator" on social media:',
     },
   };
 
@@ -57,10 +54,6 @@ export default function Output(props: any) {
       });
   };
 
-  const shareUrl = "\nhttps://oshikatsu-maker-test.onrender.com\n"
-
-  const title = "私の「推し勝★」メーカーで私の「推し勝★」ポスターを創りましょう！"
-
   return (
       <div className="result mt-2">
         {props.submittedImage && (
@@ -84,32 +77,6 @@ export default function Output(props: any) {
                 >
                   {outputText.newOshikatsuButton}
                 </button>
-              </div>
-              <div className="share-buttons flex mb-10 space-x-2">
-                <p className="share-info">
-                  {outputText.shareInfo}
-                </p>
-                <FacebookShareButton
-                  url={shareUrl}
-                  className=""
-                >
-                  <FacebookIcon size={32} borderRadius={10} />
-                </FacebookShareButton>
-                <TwitterShareButton
-                  url={shareUrl}
-                  title={title}
-                  hashtags={["私の推し勝", "勝山しか勝たん山"]}
-                  className=""
-                >
-                  <XIcon size={32} borderRadius={10} />
-                </TwitterShareButton>
-                <LineShareButton
-                  url={shareUrl}
-                  title={title}
-                  className=""
-                >
-                  <LineIcon size={32} borderRadius={10} />
-                </LineShareButton>
               </div>
               <div id="screenshot-div" ref={screenshotRef} className="screenshot-div flex flex-col items-center">
                 <img
