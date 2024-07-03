@@ -101,6 +101,11 @@ body {
   margin-bottom: 40px;
 }
 
+.share-info {
+  width: 180px;
+  font-size: 14px;
+}
+
 .screenshot-div {
   display: grid;
 }

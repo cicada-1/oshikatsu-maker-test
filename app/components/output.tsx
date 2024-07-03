@@ -15,12 +15,14 @@ export default function Output(props: any) {
       age: '歳',
       downloadButton: '保存する',
       newOshikatsuButton: '新規作成',
+      shareInfo: `「推し勝★」メーカーをみんなにシェアしましょう！`,
     },
     English: {
       heading: 'Click on the picture or the "Download" button to download your poster',
       age: ' years old',
       downloadButton: 'Download',
       newOshikatsuButton: 'New "Oshi-Katsu"',
+      shareInfo: 'Share "My Oshi-Katsu Generator" on social media:',
     },
   };
 
@@ -67,7 +69,7 @@ export default function Output(props: any) {
               <h2 id="download-heading" className="download-heading font-bold align-center m-10">
                 {outputText.heading}
               </h2>
-              <div className="output-buttons flex items-center mb-10 space-x-5">
+              <div className="output-buttons flex items-center mb-4 space-x-5">
                 <button
                   id="download-button"
                   className="download-button rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -82,6 +84,11 @@ export default function Output(props: any) {
                 >
                   {outputText.newOshikatsuButton}
                 </button>
+              </div>
+              <div className="share-buttons flex mb-10 space-x-2">
+                <p className="share-info">
+                  {outputText.shareInfo}
+                </p>
                 <FacebookShareButton
                   url={shareUrl}
                   className=""
@@ -104,29 +111,6 @@ export default function Output(props: any) {
                   <LineIcon size={32} borderRadius={10} />
                 </LineShareButton>
               </div>
-              {/* <div className="share-buttons mb-10 space-x-5">
-                <FacebookShareButton
-                  url={shareUrl}
-                  className=""
-                >
-                  <FacebookIcon size={32} borderRadius={10} />
-                </FacebookShareButton>
-                <TwitterShareButton
-                  url={shareUrl}
-                  title={title}
-                  hashtags={["私の推し勝", "勝山しか勝たん山"]}
-                  className=""
-                >
-                  <XIcon size={32} borderRadius={10} />
-                </TwitterShareButton>
-                <LineShareButton
-                  url={shareUrl}
-                  title={title}
-                  className=""
-                >
-                  <LineIcon size={32} borderRadius={10} />
-                </LineShareButton>
-              </div> */}
               <div id="screenshot-div" ref={screenshotRef} className="screenshot-div flex flex-col items-center">
                 <img
                   className="template-base"
