@@ -11,21 +11,19 @@ export default function ScrollTopButton() {
   };
 
   return (
-    <div className="scroll-button-div flex justify-end">
+
       <button
-        className="scroll-top-button mb-2"
+        className="scroll-top-button felx self-end mb-2"
         onClick={scrollToTop}
       >
         <img
           id="scroll-top-image"
           className="scroll-top-image"
           width={50}
-          height={50}
+          height={34}
           alt="not found"
           src={scrollTopImage.src}
         />
       </button>
-    </div>
-
   );
 }
