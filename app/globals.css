@@ -33,16 +33,9 @@ body {
 @font-face {
   font-family: 'KatyouBB';
   src: url('./fonts/KatyouBB.ttf') format('truetype');
-  /* Add additional font formats if necessary */
-  /* Specify the correct path to the font files */
 }
 
-.under-banner {
-  width: 100%;
-  max-width: 1024px;
-}
-
-.language-buttons {
+.page-width {
   max-width: 1024px;
 }
 
@@ -101,6 +94,11 @@ body {
   margin-bottom: 40px;
 }
 
+.share-info {
+  width: 180px;
+  font-size: 14px;
+}
+
 .screenshot-div {
   display: grid;
 }
@@ -155,10 +153,14 @@ body {
   left: 12.5%;
 }
 
-.scroll-button-div {
+.scroll-top-button {
   position: fixed;
   bottom: 0;
-  width: 100vw;
+}
+
+.scroll-top-image {
+  height: 50px;
+  width: 34px;
 }
 
 @media (max-width: 1024px) {

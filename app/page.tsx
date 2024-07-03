@@ -15,22 +15,24 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center">
-      <Banner />
+      <div className="page-width flex flex-col items-center">
+        <Banner />
 
-      <LanguageButtons
-        setLanguage={isJapanese}
-        onChange={() => setIsJapanese(!isJapanese)}
-      />
+        <LanguageButtons
+          setLanguage={isJapanese}
+          onChange={() => setIsJapanese(!isJapanese)}
+        />
 
-      <Explanation
-        setLanguage={isJapanese}
-      />
+        <Explanation
+          setLanguage={isJapanese}
+        />
 
-      <Form
-        setLanguage={isJapanese}
-      />
+        <Form
+          setLanguage={isJapanese}
+        />
 
-      <ScrollTopButton />
+        <ScrollTopButton />
+      </div>
     </main>
   );
 }

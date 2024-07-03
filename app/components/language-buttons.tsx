@@ -3,8 +3,7 @@ import React from 'react';
 export default function LanguageButtons(props: any) {
 
   return (
-    <div className="under-banner flex mx-5 justify-end">
-      <div className="language-buttons mt-3 mr-5 md:mr-10 flex justify-end">
+      <div className="language-buttons mt-3 mr-5 md:mr-10 flex self-end">
         <span>
           <button
             type="button"
@@ -15,6 +14,5 @@ export default function LanguageButtons(props: any) {
           </button>
         </span>
       </div>
-    </div>
   );
 }

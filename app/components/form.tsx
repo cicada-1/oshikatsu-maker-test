@@ -2,6 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
+import ShareButtons from './share-buttons';
 import Output from './output';
 
 export default function Form(props: any) {
@@ -244,6 +245,10 @@ export default function Form(props: any) {
           </button>
         </div>
       </form>
+
+      <ShareButtons
+        setLanguage={props.setLanguage}
+      />
 
       <Output
         setLanguage={props.setLanguage}

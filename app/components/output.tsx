@@ -13,7 +13,7 @@ export default function Output(props: any) {
       heading: '写真か「保存する」ボタンをクリックすると、ダウンロードが始まります。',
       age: '歳',
       downloadButton: '保存する',
-      newOshikatsuButton: '最初から創る',
+      newOshikatsuButton: '新規作成',
     },
     English: {
       heading: 'Click on the picture or the "Download" button to download your poster',
@@ -59,10 +59,10 @@ export default function Output(props: any) {
         {props.submittedImage && (
           <div id="poster" className="poster">
             <div id="template" className="template flex flex-col items-center max-w-5xl p-5">
-              <h2 id="download-heading" className="download-heading font-bold align-center m-10">
+              <h2 id="download-heading" className="heading font-bold align-center my-10">
                 {outputText.heading}
               </h2>
-              <div className="output-buttons mb-10 space-x-5">
+              <div className="output-buttons flex items-center mb-4 space-x-5">
                 <button
                   id="download-button"
                   className="download-button rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
