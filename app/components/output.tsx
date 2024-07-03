@@ -3,7 +3,10 @@ import React from 'react';
 import { useRef } from 'react';
 import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
-import template from '../assets/images/oshikatsu-template.jpg';
+import templateRed from '../assets/images/oshikatsu-template.jpg';
+import templateBlue from '../assets/images/oshikatsu-template-2.jpg';
+import templateGreen from '../assets/images/oshikatsu-template-3.jpg';
+import templateYellow from '../assets/images/oshikatsu-template-4.jpg';
 import cornerTag from '../assets/images/watashi-no-oshikatsu-corner-tag.png';
 
 export default function Output(props: any) {
@@ -83,7 +86,7 @@ export default function Output(props: any) {
                   className="template-base"
                   id="template-base"
                   alt="not found"
-                  src={template.src}
+                  src={templateRed.src}
                 />
 
                 <Image
