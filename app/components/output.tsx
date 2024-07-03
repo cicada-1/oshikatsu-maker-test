@@ -66,7 +66,7 @@ export default function Output(props: any) {
         {props.submittedImage && (
           <div id="poster" className="poster">
             <div id="template" className="template flex flex-col items-center max-w-5xl p-5">
-              <h2 id="download-heading" className="download-heading font-bold align-center m-10">
+              <h2 id="download-heading" className="heading font-bold align-center my-10">
                 {outputText.heading}
               </h2>
               <div className="output-buttons flex items-center mb-4 space-x-5">
