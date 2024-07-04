@@ -3,10 +3,10 @@ import React from 'react';
 import { useRef } from 'react';
 import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
-import templateRed from '../assets/images/oshikatsu-template.jpg';
-import templateBlue from '../assets/images/oshikatsu-template-2.jpg';
-import templateGreen from '../assets/images/oshikatsu-template-3.jpg';
-import templateYellow from '../assets/images/oshikatsu-template-4.jpg';
+import templateRed from '../assets/images/oshikatsu-template-red.jpg';
+import templateBlue from '../assets/images/oshikatsu-template-blue.jpg';
+import templateGreen from '../assets/images/oshikatsu-template-green.jpg';
+import templateYellow from '../assets/images/oshikatsu-template-yellow.jpg';
 import cornerTag from '../assets/images/watashi-no-oshikatsu-corner-tag.png';
 
 export default function Output(props: any) {

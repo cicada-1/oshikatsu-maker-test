@@ -2,10 +2,10 @@
 import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
-import templateRed from '../assets/images/oshikatsu-template.jpg';
-import templateBlue from '../assets/images/oshikatsu-template-2.jpg';
-import templateGreen from '../assets/images/oshikatsu-template-3.jpg';
-import templateYellow from '../assets/images/oshikatsu-template-4.jpg';
+import templateRed from '../assets/images/oshikatsu-template-red.jpg';
+import templateBlue from '../assets/images/oshikatsu-template-blue.jpg';
+import templateGreen from '../assets/images/oshikatsu-template-green.jpg';
+import templateYellow from '../assets/images/oshikatsu-template-yellow.jpg';
 import ShareButtons from './share-buttons';
 import Output from './output';
 
