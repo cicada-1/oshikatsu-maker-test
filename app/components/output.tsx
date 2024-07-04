@@ -7,7 +7,10 @@ import templateRed from '../assets/images/oshikatsu-template-red.jpg';
 import templateBlue from '../assets/images/oshikatsu-template-blue.jpg';
 import templateGreen from '../assets/images/oshikatsu-template-green.jpg';
 import templateYellow from '../assets/images/oshikatsu-template-yellow.jpg';
-import cornerTag from '../assets/images/watashi-no-oshikatsu-corner-tag.png';
+import cornerTagRed from '../assets/images/watashi-no-oshikatsu-corner-tag-red.png';
+import cornerTagBlue from '../assets/images/watashi-no-oshikatsu-corner-tag-blue.png';
+import cornerTagGreen from '../assets/images/watashi-no-oshikatsu-corner-tag-green.png';
+import cornerTagYellow from '../assets/images/watashi-no-oshikatsu-corner-tag-yellow.png';
 
 export default function Output(props: any) {
 
@@ -34,6 +37,13 @@ export default function Output(props: any) {
     'green': templateGreen.src,
     'yellow': templateYellow.src,
   };
+
+  const cornerTags = {
+    'red': cornerTagRed.src,
+    'blue': cornerTagBlue.src,
+    'green': cornerTagGreen.src,
+    'yellow': cornerTagYellow.src,
+  }
 
   function formScroll() {
     window.location.replace("/#form");
@@ -110,7 +120,7 @@ export default function Output(props: any) {
                   className="corner-tag"
                   id="corner-tag"
                   alt="not found"
-                  src={cornerTag.src}
+                src={cornerTags[props.submittedText.design as keyof typeof cornerTags]}
                 />
 
                 <p className="poster-oshikatsu" id="poster-oshikatsu">{props.submittedText.oshikatsu}</p>
