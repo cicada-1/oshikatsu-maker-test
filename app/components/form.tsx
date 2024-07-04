@@ -13,6 +13,7 @@ export default function Form(props: any) {
 
   const formInfo = {
     Japanese: {
+      designQuestion: 'ポスターのデザインを選んでください',
       oshikatsuQuestion: 'あなたの「推し勝★」を教えてください！',
       oshikatsuNote: '※7字まで入力できます。',
       oshikatsuMaxLength: 7,
@@ -30,6 +31,7 @@ export default function Form(props: any) {
       submitButtonText: '「推し勝★」を創る！',
     },
     English: {
+      designQuestion: 'Choose your poster design',
       oshikatsuQuestion: 'What is your "Oshi-Katsu"?',
       oshikatsuNote: '※ Please enter up to 13 characters',
       oshikatsuMaxLength: 13,
@@ -116,7 +118,7 @@ export default function Form(props: any) {
           <div className="form mt-5 grid grid-cols-1 gap-x-6 gap-y-8">
             <div className="col-span-full">
               <label className="form-heading block font-semibold leading-6 text-gray-900">
-                ポスターのデザインを選んでください
+                {formShow.designQuestion}
               </label>
               <div className="design-options flex mt-4 justify-between">
                 <label>
