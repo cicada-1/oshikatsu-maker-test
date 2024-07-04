@@ -86,6 +86,26 @@ body {
   max-width: 350px;
 }
 
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type=radio] + img {
+  cursor: pointer;
+  outline: 1px solid #9ca3af;
+}
+
+[type=radio]:checked + img {
+  outline: 2px solid #3AB8B4;
+}
+
+.design-1-image, .design-2-image, .design-3-image, .design-4-image {
+  width: 75px;
+}
+
 .age-container, .age {
   max-width: 75px;
 }
@@ -122,9 +142,9 @@ body {
 }
 
 .corner-tag {
-  max-width: 12.7%;
-  bottom: 31.55%;
-  left: 80.6%;
+  max-width: 12.96%;
+  bottom: 31.5%;
+  left: 80.57%;
 }
 
 .poster-oshikatsu {

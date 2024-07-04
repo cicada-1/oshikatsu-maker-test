@@ -2,6 +2,10 @@
 import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
+import templateRed from '../assets/images/oshikatsu-template-red.jpg';
+import templateBlue from '../assets/images/oshikatsu-template-blue.jpg';
+import templateGreen from '../assets/images/oshikatsu-template-green.jpg';
+import templateYellow from '../assets/images/oshikatsu-template-yellow.jpg';
 import ShareButtons from './share-buttons';
 import Output from './output';
 
@@ -9,6 +13,7 @@ export default function Form(props: any) {
 
   const formInfo = {
     Japanese: {
+      designQuestion: 'ポスターのデザインを選んでください',
       oshikatsuQuestion: 'あなたの「推し勝★」を教えてください！',
       oshikatsuNote: '※7字まで入力できます。',
       oshikatsuMaxLength: 7,
@@ -26,6 +31,7 @@ export default function Form(props: any) {
       submitButtonText: '「推し勝★」を創る！',
     },
     English: {
+      designQuestion: 'Choose your poster design',
       oshikatsuQuestion: 'What is your "Oshi-Katsu"?',
       oshikatsuNote: '※ Please enter up to 13 characters',
       oshikatsuMaxLength: 13,
@@ -47,6 +53,7 @@ export default function Form(props: any) {
   let formShow = props.setLanguage ? formInfo.Japanese : formInfo.English;
 
   const [formData, setFormData] = useState({
+    design: '',
     oshikatsu: '',
     mirai: '',
     penname: '',
@@ -59,6 +66,7 @@ export default function Form(props: any) {
   const [submittedImage, setSubmittedImage] = useState(null);
 
   const [submittedText, setSubmittedText] = useState({
+    design: '',
     oshikatsu: '',
     mirai: '',
     penname: '',
@@ -99,13 +107,7 @@ export default function Form(props: any) {
   async function handleSubmit(e: any) {
     e.preventDefault();
     setSubmittedImage(e.target.image.files[0]);
-    setSubmittedText({
-      ...submittedText,
-      [e.target.oshikatsu.name]: e.target.oshikatsu.value,
-      [e.target.mirai.name]: e.target.mirai.value,
-      [e.target.penname.name]: e.target.penname.value,
-      [e.target.age.name]: e.target.age.value,
-    });
+    setSubmittedText(formData);
     setTimeout(posterScroll, 500);
   };
 
@@ -114,6 +116,73 @@ export default function Form(props: any) {
       <form id="form" onSubmit={handleSubmit} className="p-5">
         <div className="space-y-5 flex flex-col items-center">
           <div className="form mt-5 grid grid-cols-1 gap-x-6 gap-y-8">
+            <div className="col-span-full">
+              <label className="form-heading block font-semibold leading-6 text-gray-900">
+                {formShow.designQuestion}
+              </label>
+              <div className="design-options flex mt-4 justify-between">
+                <label>
+                  <input
+                    type="radio"
+                    name="design"
+                    value="red"
+                    required={true}
+                    className="design-1 hidden"
+                    onChange={changeHandler}
+                  />
+                  <img
+                    className="design-1-image"
+                    src={templateRed.src}
+                    alt="not found"
+                  />
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="design"
+                    value="blue"
+                    required={true}
+                    className="design-2 hidden"
+                    onChange={changeHandler}
+                  />
+                  <img
+                    className="design-2-image"
+                    src={templateBlue.src}
+                    alt="not found"
+                  />
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="design"
+                    value="green"
+                    required={true}
+                    className="design-3 hidden"
+                    onChange={changeHandler}
+                  />
+                  <img
+                    className="design-3-image"
+                    src={templateGreen.src}
+                    alt="not found"
+                  />
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="design"
+                    value="yellow"
+                    required={true}
+                    className="design-4 hidden"
+                    onChange={changeHandler}
+                  />
+                  <img
+                    className="design-4-image"
+                    src={templateYellow.src}
+                    alt="not found"
+                  />
+                </label>
+              </div>
+            </div>
             <div className="col-span-full">
               <label htmlFor="oshikatsu" className="form-heading block font-semibold leading-6 text-gray-900">
                 {formShow.oshikatsuQuestion}

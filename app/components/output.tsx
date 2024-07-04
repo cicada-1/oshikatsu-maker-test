@@ -3,19 +3,25 @@ import React from 'react';
 import { useRef } from 'react';
 import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
-import template from '../assets/images/oshikatsu-template.jpg';
-import cornerTag from '../assets/images/watashi-no-oshikatsu-corner-tag.png';
+import templateRed from '../assets/images/oshikatsu-template-red.jpg';
+import templateBlue from '../assets/images/oshikatsu-template-blue.jpg';
+import templateGreen from '../assets/images/oshikatsu-template-green.jpg';
+import templateYellow from '../assets/images/oshikatsu-template-yellow.jpg';
+import cornerTagRed from '../assets/images/watashi-no-oshikatsu-corner-tag-red.png';
+import cornerTagBlue from '../assets/images/watashi-no-oshikatsu-corner-tag-blue.png';
+import cornerTagGreen from '../assets/images/watashi-no-oshikatsu-corner-tag-green.png';
+import cornerTagYellow from '../assets/images/watashi-no-oshikatsu-corner-tag-yellow.png';
 
 export default function Output(props: any) {
 
   const outputTextLanguages = {
-    Japanese: {
+    japanese: {
       heading: '写真か「保存する」ボタンをクリックすると、ダウンロードが始まります。',
       age: '歳',
       downloadButton: '保存する',
       newOshikatsuButton: '新規作成',
     },
-    English: {
+    english: {
       heading: 'Click on the picture or the "Download" button to download your poster',
       age: ' years old',
       downloadButton: 'Download',
@@ -23,7 +29,21 @@ export default function Output(props: any) {
     },
   };
 
-  let outputText = props.setLanguage ? outputTextLanguages.Japanese : outputTextLanguages.English;
+  let outputText = props.setLanguage ? outputTextLanguages.japanese : outputTextLanguages.english;
+
+  const templateDesigns = {
+    'red': templateRed.src,
+    'blue': templateBlue.src,
+    'green': templateGreen.src,
+    'yellow': templateYellow.src,
+  };
+
+  const cornerTags = {
+    'red': cornerTagRed.src,
+    'blue': cornerTagBlue.src,
+    'green': cornerTagGreen.src,
+    'yellow': cornerTagYellow.src,
+  }
 
   function formScroll() {
     window.location.replace("/#form");
@@ -32,6 +52,7 @@ export default function Output(props: any) {
   const clickHandler = (e: any) => {
     e.preventDefault();
     props.setFormData({
+      design: '',
       oshikatsu: '',
       mirai: '',
       penname: '',
@@ -62,7 +83,7 @@ export default function Output(props: any) {
               <h2 id="download-heading" className="heading font-bold align-center my-10">
                 {outputText.heading}
               </h2>
-              <div className="output-buttons flex items-center mb-4 space-x-5">
+              <div className="output-buttons flex items-center mb-10 space-x-5">
                 <button
                   id="download-button"
                   className="download-button rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -83,7 +104,7 @@ export default function Output(props: any) {
                   className="template-base"
                   id="template-base"
                   alt="not found"
-                  src={template.src}
+                  src={templateDesigns[props.submittedText.design as keyof typeof templateDesigns]}
                 />
 
                 <Image
@@ -99,12 +120,14 @@ export default function Output(props: any) {
                   className="corner-tag"
                   id="corner-tag"
                   alt="not found"
-                  src={cornerTag.src}
+                src={cornerTags[props.submittedText.design as keyof typeof cornerTags]}
                 />
 
                 <p className="poster-oshikatsu" id="poster-oshikatsu">{props.submittedText.oshikatsu}</p>
                 <p className="poster-mirai" id="poster-mirai">{props.submittedText.mirai}</p>
-                <p className="poster-name-age" id="poster-name-age">{props.submittedText.penname}・{props.submittedText.age}{outputText.age}</p>
+                <p className="poster-name-age" id="poster-name-age">
+                  {props.submittedText.penname}{props.submittedText.penname ? (props.submittedText.age && `・${props.submittedText.age}${outputText.age}`) : (props.submittedText.age && `${props.submittedText.age}${outputText.age}`)}
+                </p>
                 <a id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></a>
               </div>
             </div>
