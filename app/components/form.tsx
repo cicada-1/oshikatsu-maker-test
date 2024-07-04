@@ -2,6 +2,10 @@
 import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
+import templateRed from '../assets/images/oshikatsu-template.jpg';
+import templateBlue from '../assets/images/oshikatsu-template-2.jpg';
+import templateGreen from '../assets/images/oshikatsu-template-3.jpg';
+import templateYellow from '../assets/images/oshikatsu-template-4.jpg';
 import ShareButtons from './share-buttons';
 import Output from './output';
 
@@ -47,6 +51,7 @@ export default function Form(props: any) {
   let formShow = props.setLanguage ? formInfo.Japanese : formInfo.English;
 
   const [formData, setFormData] = useState({
+    design: '',
     oshikatsu: '',
     mirai: '',
     penname: '',
@@ -59,6 +64,7 @@ export default function Form(props: any) {
   const [submittedImage, setSubmittedImage] = useState(null);
 
   const [submittedText, setSubmittedText] = useState({
+    design: '',
     oshikatsu: '',
     mirai: '',
     penname: '',
@@ -101,6 +107,7 @@ export default function Form(props: any) {
     setSubmittedImage(e.target.image.files[0]);
     setSubmittedText({
       ...submittedText,
+      [e.target.design.name]: e.target.design.value,
       [e.target.oshikatsu.name]: e.target.oshikatsu.value,
       [e.target.mirai.name]: e.target.mirai.value,
       [e.target.penname.name]: e.target.penname.value,
@@ -114,6 +121,69 @@ export default function Form(props: any) {
       <form id="form" onSubmit={handleSubmit} className="p-5">
         <div className="space-y-5 flex flex-col items-center">
           <div className="form mt-5 grid grid-cols-1 gap-x-6 gap-y-8">
+            <div className="col-span-full">
+              <label htmlFor="design" className="form-heading block font-semibold leading-6 text-gray-900">
+                ポスターのデザインを選んでください
+              </label>
+              <div className="design-options flex mt-4 justify-between">
+                <label>
+                  <input
+                    type="radio"
+                    name="design"
+                    value="red"
+                    required={true}
+                    className="design-1 hidden"
+                  />
+                  <img
+                    className="design-1-image"
+                    src={templateRed.src}
+                    alt="not found"
+                  />
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="design"
+                    value="blue"
+                    required={true}
+                    className="design-2 hidden"
+                  />
+                  <img
+                    className="design-2-image"
+                    src={templateBlue.src}
+                    alt="not found"
+                  />
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="design"
+                    value="green"
+                    required={true}
+                    className="design-3 hidden"
+                  />
+                  <img
+                    className="design-3-image"
+                    src={templateGreen.src}
+                    alt="not found"
+                  />
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="design"
+                    value="yellow"
+                    required={true}
+                    className="design-4 hidden"
+                  />
+                  <img
+                    className="design-4-image"
+                    src={templateYellow.src}
+                    alt="not found"
+                  />
+                </label>
+              </div>
+            </div>
             <div className="col-span-full">
               <label htmlFor="oshikatsu" className="form-heading block font-semibold leading-6 text-gray-900">
                 {formShow.oshikatsuQuestion}
