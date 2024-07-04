@@ -17,7 +17,7 @@ export default function ShareButtons(props: any) {
 
   let outputText = props.setLanguage ? outputTextLanguages.Japanese : outputTextLanguages.English;
 
-  const shareUrl = "\nhttps://oshikatsu-maker-test.onrender.com\n"
+  const shareUrl = "https://oshikatsu-maker-test.onrender.com"
 
   return (
     <div className="share-buttons flex mb-10 space-x-2 p-5 justify-center">

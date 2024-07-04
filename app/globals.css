@@ -48,6 +48,10 @@ body {
   max-width: 500px;
 }
 
+.page-title {
+  font-size: 18px;
+}
+
 .explanation, .explanation-note {
   word-wrap: break-word;
   white-space: pre-wrap;
