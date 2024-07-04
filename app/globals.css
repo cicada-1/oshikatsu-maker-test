@@ -138,7 +138,7 @@ body {
   width: 70.3%;
   bottom: 23.3%;
   left: 13.5%;
-  border-radius: 0px 8px 8px 8px;
+  border-radius: 0px 3px 3px 3px;
 }
 
 .corner-tag {
@@ -150,6 +150,7 @@ body {
 .poster-oshikatsu {
   font-family: 'KatyouBB', sans-serif;
   text-align: center;
+  font-size: 5.1vw;
   font-weight: bold;
   white-space: nowrap;
   max-width: 40.3%;
@@ -158,6 +159,7 @@ body {
 }
 
 .poster-mirai {
+  font-size: 2.12vw;
   font-weight: bold;
   word-wrap: break-word;
   max-width: 43%;
@@ -166,6 +168,7 @@ body {
 }
 
 .poster-name-age {
+  font-size: 1.7vw;
   font-weight: bold;
   white-space: nowrap;
   max-width: 43%;
@@ -183,17 +186,21 @@ body {
   width: 34px;
 }
 
-@media (max-width: 1024px) {
-  .poster-oshikatsu {
-    font-size: 5.1vw;
+@media (min-width: 410px) {
+  .picture {
+    border-radius: 0px 4px 4px 4px;
   }
+}
 
-  .poster-mirai {
-    font-size: 2.12vw;
+@media (min-width: 641px) {
+  .picture {
+    border-radius: 0px 6px 6px 6px;
   }
+}
 
-  .poster-name-age {
-    font-size: 1.7vw;
+@media (min-width: 811px) {
+  .picture {
+    border-radius: 0px 7px 7px 7px;
   }
 }
 
