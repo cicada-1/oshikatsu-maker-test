@@ -12,13 +12,13 @@ import cornerTag from '../assets/images/watashi-no-oshikatsu-corner-tag.png';
 export default function Output(props: any) {
 
   const outputTextLanguages = {
-    Japanese: {
+    japanese: {
       heading: '写真か「保存する」ボタンをクリックすると、ダウンロードが始まります。',
       age: '歳',
       downloadButton: '保存する',
       newOshikatsuButton: '新規作成',
     },
-    English: {
+    english: {
       heading: 'Click on the picture or the "Download" button to download your poster',
       age: ' years old',
       downloadButton: 'Download',
@@ -26,7 +26,14 @@ export default function Output(props: any) {
     },
   };
 
-  let outputText = props.setLanguage ? outputTextLanguages.Japanese : outputTextLanguages.English;
+  let outputText = props.setLanguage ? outputTextLanguages.japanese : outputTextLanguages.english;
+
+  const templateDesigns = {
+    'red': templateRed.src,
+    'blue': templateBlue.src,
+    'green': templateGreen.src,
+    'yellow': templateYellow.src,
+  };
 
   function formScroll() {
     window.location.replace("/#form");
@@ -35,6 +42,7 @@ export default function Output(props: any) {
   const clickHandler = (e: any) => {
     e.preventDefault();
     props.setFormData({
+      design: '',
       oshikatsu: '',
       mirai: '',
       penname: '',
@@ -86,7 +94,7 @@ export default function Output(props: any) {
                   className="template-base"
                   id="template-base"
                   alt="not found"
-                  src={templateRed.src}
+                  src={templateDesigns[props.submittedText.design as keyof typeof templateDesigns]}
                 />
 
                 <Image

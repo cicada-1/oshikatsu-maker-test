@@ -104,15 +104,12 @@ export default function Form(props: any) {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
+    console.log(Object.keys(formData)[0]);
+    console.log(e.target.design);
+    console.log(e.target);
+    console.log(formData);
     setSubmittedImage(e.target.image.files[0]);
-    setSubmittedText({
-      ...submittedText,
-      [e.target.design.name]: e.target.design.value,
-      [e.target.oshikatsu.name]: e.target.oshikatsu.value,
-      [e.target.mirai.name]: e.target.mirai.value,
-      [e.target.penname.name]: e.target.penname.value,
-      [e.target.age.name]: e.target.age.value,
-    });
+    setSubmittedText(formData);
     setTimeout(posterScroll, 500);
   };
 
@@ -122,7 +119,7 @@ export default function Form(props: any) {
         <div className="space-y-5 flex flex-col items-center">
           <div className="form mt-5 grid grid-cols-1 gap-x-6 gap-y-8">
             <div className="col-span-full">
-              <label htmlFor="design" className="form-heading block font-semibold leading-6 text-gray-900">
+              <label className="form-heading block font-semibold leading-6 text-gray-900">
                 ポスターのデザインを選んでください
               </label>
               <div className="design-options flex mt-4 justify-between">
@@ -133,6 +130,7 @@ export default function Form(props: any) {
                     value="red"
                     required={true}
                     className="design-1 hidden"
+                    onChange={changeHandler}
                   />
                   <img
                     className="design-1-image"
@@ -147,6 +145,7 @@ export default function Form(props: any) {
                     value="blue"
                     required={true}
                     className="design-2 hidden"
+                    onChange={changeHandler}
                   />
                   <img
                     className="design-2-image"
@@ -161,6 +160,7 @@ export default function Form(props: any) {
                     value="green"
                     required={true}
                     className="design-3 hidden"
+                    onChange={changeHandler}
                   />
                   <img
                     className="design-3-image"
@@ -175,6 +175,7 @@ export default function Form(props: any) {
                     value="yellow"
                     required={true}
                     className="design-4 hidden"
+                    onChange={changeHandler}
                   />
                   <img
                     className="design-4-image"
