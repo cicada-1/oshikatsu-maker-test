@@ -36,7 +36,12 @@ body {
 }
 
 .page-width {
+  width: 100vw;
   max-width: 1024px;
+}
+
+.banner {
+  min-width: 430px;
 }
 
 .heading {
