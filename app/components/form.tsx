@@ -104,10 +104,6 @@ export default function Form(props: any) {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-    console.log(Object.keys(formData)[0]);
-    console.log(e.target.design);
-    console.log(e.target);
-    console.log(formData);
     setSubmittedImage(e.target.image.files[0]);
     setSubmittedText(formData);
     setTimeout(posterScroll, 500);
