@@ -20,7 +20,7 @@ export default function ShareButtons(props: any) {
   const shareUrl = "\nhttps://oshikatsu-maker-test.onrender.com\n"
 
   return (
-    <div className="share-buttons flex mb-10 space-x-2 p-5">
+    <div className="share-buttons flex mb-10 space-x-2 p-5 justify-center">
       <p className="share-info">
         {outputText.shareInfo}
       </p>
