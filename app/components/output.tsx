@@ -115,7 +115,9 @@ export default function Output(props: any) {
 
                 <p className="poster-oshikatsu" id="poster-oshikatsu">{props.submittedText.oshikatsu}</p>
                 <p className="poster-mirai" id="poster-mirai">{props.submittedText.mirai}</p>
-                <p className="poster-name-age" id="poster-name-age">{props.submittedText.penname}・{props.submittedText.age}{outputText.age}</p>
+                <p className="poster-name-age" id="poster-name-age">
+                  {props.submittedText.penname}{props.submittedText.penname ? (props.submittedText.age && `・${props.submittedText.age}${outputText.age}`) : (props.submittedText.age && `${props.submittedText.age}${outputText.age}`)}
+                </p>
                 <a id="download-div" className="download-div w-full h-full" onClick={screenshotDownload}></a>
               </div>
             </div>
