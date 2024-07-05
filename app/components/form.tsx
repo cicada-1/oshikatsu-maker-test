@@ -129,16 +129,19 @@ export default function Form(props: any) {
               <label className="form-heading block font-semibold leading-6 text-gray-900">
                 {formShow.designQuestion}
               </label>
-              <div className="design-options flex mt-4 justify-between">
-                {Object.keys(templateDesigns).map((colour: any) => (
-                  <RadioButton
-                    key={colour}
-                    onChange={changeHandler}
-                    value={colour}
-                    src={templateDesigns[colour as keyof typeof templateDesigns]}
-                  />
-                ))}
+              <div className="flex justify-center">
+                <div className="design-options flex flex-wrap mt-4 justify-between place-self-center gap-y-4">
+                  {Object.keys(templateDesigns).map((colour: any) => (
+                    <RadioButton
+                      key={colour}
+                      onChange={changeHandler}
+                      value={colour}
+                      src={templateDesigns[colour as keyof typeof templateDesigns]}
+                    />
+                  ))}
+                </div>
               </div>
+
             </div>
             <div className="col-span-full">
               <label htmlFor="oshikatsu" className="form-heading block font-semibold leading-6 text-gray-900">
