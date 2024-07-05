@@ -9,6 +9,8 @@ import templateYellow from '../assets/images/oshikatsu-template-yellow.jpg';
 import ShareButtons from './share-buttons';
 import Output from './output';
 
+import RadioButton from './radio-button';
+
 export default function Form(props: any) {
 
   const formInfo = {
@@ -111,6 +113,13 @@ export default function Form(props: any) {
     setTimeout(posterScroll, 500);
   };
 
+  const templateDesigns = {
+    'red': templateRed.src,
+    'blue': templateBlue.src,
+    'green': templateGreen.src,
+    'yellow': templateYellow.src,
+  };
+
   return (
     <div>
       <form id="form" onSubmit={handleSubmit} className="p-5">
@@ -121,66 +130,14 @@ export default function Form(props: any) {
                 {formShow.designQuestion}
               </label>
               <div className="design-options flex mt-4 justify-between">
-                <label>
-                  <input
-                    type="radio"
-                    name="design"
-                    value="red"
-                    required={true}
-                    className="design-1 hidden"
+                {Object.keys(templateDesigns).map((colour: any) => (
+                  <RadioButton
+                    key={colour}
                     onChange={changeHandler}
+                    value={colour}
+                    src={templateDesigns[colour as keyof typeof templateDesigns]}
                   />
-                  <img
-                    className="design-1-image"
-                    src={templateRed.src}
-                    alt="not found"
-                  />
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="design"
-                    value="blue"
-                    required={true}
-                    className="design-2 hidden"
-                    onChange={changeHandler}
-                  />
-                  <img
-                    className="design-2-image"
-                    src={templateBlue.src}
-                    alt="not found"
-                  />
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="design"
-                    value="green"
-                    required={true}
-                    className="design-3 hidden"
-                    onChange={changeHandler}
-                  />
-                  <img
-                    className="design-3-image"
-                    src={templateGreen.src}
-                    alt="not found"
-                  />
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="design"
-                    value="yellow"
-                    required={true}
-                    className="design-4 hidden"
-                    onChange={changeHandler}
-                  />
-                  <img
-                    className="design-4-image"
-                    src={templateYellow.src}
-                    alt="not found"
-                  />
-                </label>
+                ))}
               </div>
             </div>
             <div className="col-span-full">
