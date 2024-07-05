@@ -25,7 +25,7 @@ export default function Explanation(props: any) {
 
   return (
     <div className="heading m-5 mt-1 flex flex-col items-center">
-      <h1 className="form-title mb-5 font-bold leading-7 text-gray-900">{explanation.title}</h1>
+      <h1 className="page-title mb-5 font-bold leading-7 text-gray-900">{explanation.title}</h1>
       <p className="explanation">
         {explanation.body1}
       </p>
