@@ -12,6 +12,7 @@ export default function RadioButton(props: any) {
         required={true}
         className="design-choice hidden"
         onChange={props.onChange}
+        defaultChecked={props.value === "red"}
       />
       <img
         className="design-choice-image"
