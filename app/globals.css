@@ -230,5 +230,9 @@ body {
   .poster-mirai {
     font-size: 130%;
   }
+
+  .poster-name-age {
+    font-size: 110%
+  }
 }
 
