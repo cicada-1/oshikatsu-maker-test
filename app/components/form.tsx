@@ -15,7 +15,7 @@ export default function Form(props: any) {
 
   const formInfo = {
     Japanese: {
-      designQuestion: 'ポスターのデザインを選んでください',
+      designQuestion: 'ポスターのデザインを選択してください',
       oshikatsuQuestion: 'あなたの「推し勝★」を教えてください！',
       oshikatsuNote: '※7字まで入力できます。',
       oshikatsuMaxLength: 7,
@@ -28,7 +28,7 @@ export default function Form(props: any) {
       pennameNote: '※15字まで入力できます。',
       pennamePlaceholder: '勝山たろう',
       ageQuestion: 'おいくつですか？（任意）',
-      imageQuestion: '写真をアップしてください。',
+      imageQuestion: '写真を選択してください。',
       imageNote: '※テンプレートの写真スペースは横になっているので、縦の写真をアップする場合、全部が表示されない可能性があります。',
       submitButtonText: '「推し勝★」を創る！',
     },
