@@ -92,8 +92,12 @@ body {
   padding-left: 5px;
 }
 
-.form-field {
+.form-field, {
   max-width: 350px;
+}
+
+.design-options {
+  max-width: 320px;
 }
 
 [type=radio] {
@@ -113,7 +117,7 @@ body {
 }
 
 .design-choice-image {
-  width: 75px;
+  width: 150px;
 }
 
 .age-container, .age {
