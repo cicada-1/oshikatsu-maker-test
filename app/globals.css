@@ -200,6 +200,24 @@ body {
   width: 34px;
 }
 
+.footer {
+  width: 100vw;
+}
+
+.footer-div {
+  min-width: 300px;
+  margin-right: 34px;
+}
+
+.footer-text {
+  font-size: 12px;
+}
+
+footer a {
+  width: 30px !important;
+  height: 30px !important;
+}
+
 @media (min-width: 410px) {
   .picture {
     border-radius: 0px 4px 4px 4px;

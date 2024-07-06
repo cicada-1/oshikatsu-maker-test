@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Banner from './components/banner';
 import LanguageButtons from './components/language-buttons';
 import Explanation from './components/explanation';
 import Form from './components/form';
 import ScrollTopButton from './components/scroll-top-button';
+import Footer from './components/footer';
 
 export default function Home() {
 
@@ -33,6 +33,7 @@ export default function Home() {
 
         <ScrollTopButton />
       </div>
+      <Footer />
     </main>
   );
 }
