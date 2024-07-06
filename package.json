@@ -16,7 +16,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-router-dom": "^6.23.1",
-    "react-share": "^5.1.0"
+    "react-share": "^5.1.0",
+    "react-social-icons": "^6.16.0"
   },
   "devDependencies": {
     "@types/merge-images": "^1.2.4",
