@@ -32,18 +32,11 @@ export default function Output(props: any) {
   let outputText = props.setLanguage ? outputTextLanguages.japanese : outputTextLanguages.english;
 
   const templateDesigns = {
-    'red': templateRed.src,
-    'blue': templateBlue.src,
-    'green': templateGreen.src,
-    'yellow': templateYellow.src,
+    'red': [templateRed.src, cornerTagRed.src],
+    'blue': [templateBlue.src, cornerTagBlue.src],
+    'green': [templateGreen.src, cornerTagGreen.src],
+    'yellow': [templateYellow.src, cornerTagYellow.src],
   };
-
-  const cornerTags = {
-    'red': cornerTagRed.src,
-    'blue': cornerTagBlue.src,
-    'green': cornerTagGreen.src,
-    'yellow': cornerTagYellow.src,
-  }
 
   function formScroll() {
     window.location.replace("/#form");
@@ -104,7 +97,7 @@ export default function Output(props: any) {
                   className="template-base"
                   id="template-base"
                   alt="not found"
-                  src={templateDesigns[props.submittedText.design as keyof typeof templateDesigns]}
+                  src={templateDesigns[props.submittedText.design as keyof typeof templateDesigns][0]}
                 />
 
                 <Image
@@ -120,7 +113,7 @@ export default function Output(props: any) {
                   className="corner-tag"
                   id="corner-tag"
                   alt="not found"
-                src={cornerTags[props.submittedText.design as keyof typeof cornerTags]}
+                src={templateDesigns[props.submittedText.design as keyof typeof templateDesigns][1]}
                 />
 
                 <p className="poster-oshikatsu" id="poster-oshikatsu">{props.submittedText.oshikatsu}</p>

@@ -55,7 +55,7 @@ export default function Form(props: any) {
   let formShow = props.setLanguage ? formInfo.Japanese : formInfo.English;
 
   const [formData, setFormData] = useState({
-    design: '',
+    design: 'red',
     oshikatsu: '',
     mirai: '',
     penname: '',
@@ -75,10 +75,25 @@ export default function Form(props: any) {
     age: '',
   });
 
+  const imageHandler = (e: any) => {
+    if(e.target.files[0].size > 2000000){
+      props.setLanguage ? alert("2MBまでのファイルが選択できます") : alert("File over size limit. Please select an image up to 2MB");
+      setFormData({
+        ...formData,
+        image: ''
+      });
+      setSelectedImage(null);
+     }else{
+      setSelectedImage(e.target.files[0]);
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    };
+    e.target.setCustomValidity("");
+  };
+
   const changeHandler = (e: any) => {
-    if(e.target.name === "image"){
-      setSelectedImage(e.target.files[0])
-    }
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -149,7 +164,7 @@ export default function Form(props: any) {
               </label>
               <p className="form-note">{formShow.oshikatsuNote}</p>
               <div className="mt-2">
-                <div className="form-field flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset">
+                <div className="form-input flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset">
                   <input
                     type="text"
                     name="oshikatsu"
@@ -171,7 +186,7 @@ export default function Form(props: any) {
                 {formShow.miraiQuestion}
               </label>
               <p className="form-note">{formShow.miraiNote}</p>
-              <div className="form-field mt-2">
+              <div className="form-input mt-2">
                 <textarea
                   name="mirai"
                   id="mirai"
@@ -192,7 +207,7 @@ export default function Form(props: any) {
               </label>
               <p className="form-note">{formShow.pennameNote}</p>
               <div className="mt-2">
-                <div className="form-field flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset">
+                <div className="form-input flex mt-4 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset">
                   <input
                     type="text"
                     name="penname"
@@ -235,7 +250,7 @@ export default function Form(props: any) {
                 {formShow.imageQuestion}
               </label>
               <p className="form-note">{formShow.imageNote}</p>
-              <div className="form-field mt-4">
+              <div className="form-input mt-4">
                 {selectedImage && (
                   <div>
                     <Image
@@ -255,7 +270,7 @@ export default function Form(props: any) {
                     id="image"
                     name="image"
                     value={formData.image}
-                    onChange={changeHandler}
+                    onChange={imageHandler}
                     required={true}
                     onInvalid={existenceValidity}
                   />
