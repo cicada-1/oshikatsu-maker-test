@@ -55,7 +55,7 @@ export default function Form(props: any) {
   let formShow = props.setLanguage ? formInfo.Japanese : formInfo.English;
 
   const [formData, setFormData] = useState({
-    design: '',
+    design: 'red',
     oshikatsu: '',
     mirai: '',
     penname: '',
@@ -77,13 +77,19 @@ export default function Form(props: any) {
 
   const imageHandler = (e: any) => {
     if(e.target.files[0].size > 2000000){
-      props.setLanguage ? alert("2MBまでのファイルが選択できます") : alert("File over size limit. Please select an image up to 2MB")
+      props.setLanguage ? alert("2MBまでのファイルが選択できます") : alert("File over size limit. Please select an image up to 2MB");
+      setFormData({
+        ...formData,
+        image: ''
+      });
+      setSelectedImage(null);
      }else{
       setSelectedImage(e.target.files[0]);
       setFormData({
         ...formData,
         [e.target.name]: e.target.value
-      })};
+      })
+    };
     e.target.setCustomValidity("");
   };
 
